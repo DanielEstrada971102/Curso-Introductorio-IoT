@@ -1,0 +1,20 @@
+# Book settings
+title: Introducción a IoT
+author: Daniel Estrada, Fabian Castaño / Universidad de Antioquia
+logo: docs/imgs/facultad-exactas.png
+# root: ./
+# path_to_book: /docs
+
+# repository:
+#   url: https://github.com/DanielEstrada971102/Curso-Introductorio-IoT
+#   branch: main
+
+launch_buttons:
+  binderhub_url: ""
+  colab_url: https://colab.research.google.com
+
+html:
+  google_analytics_id: "UA-43235448-3"
+
+execute:
+  execute_notebooks: force
