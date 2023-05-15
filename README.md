@@ -3,5 +3,23 @@ Este curso introductorio proporcionará herramientas generales para la construcc
 
 Para acceder al curso interactivo diríjace a [http://www.iotintro.com/](https://danielestrada971102.github.io/Curso-Introductorio-IoT/intro.html)
 
-# Pasos para construir el jupyterbook
+# Contribuciones
+Si eres contribuidor de este proyecto, por favor, trata de seguir las pautas para publicar tus aportaciones. Esto es con el fin de preservar la integridad del repositorio y evitar fallos en el sitio desplegado. La construcción de Jupyter Book está completamente de acuerdo con lo indicado en el [sitio oficial](https://jupyterbook.org/en/stable/intro.html). Para ello, es necesario instalar las dependencias adecuadas. Con el fin de evitar esto, se incluye el archivo requerimets.txt para facilitar la inicialización de un entorno virtual donde se pueda reconstruir el notebook sin generar conflictos. En términos generales, para publicar los cambios en Jupyter Book se sigue la siguiente metodología:
 
+* Realizar los cambios en los archivos dentro del directorio `/content` o crearlos en caso necesario (No olvides actualizar la estructura de `_toc.yml` si es necesario).
+* Reconstruir Jupyter Book con el siguiente comando:
+```bash
+jupyter-book build content/
+```
+Esto actualizará y construirá los archivos HTML necesarios para desplegar el sitio.
+* Confirmar y hacer `push` a los cambios en la rama principal del repositorio.
+* Actualizar la rama `gh-pages` con el siguiente comando:
+```bash
+ghp-import -n -p -f content/_build/html
+```
+Esto actualizará y dejará publicado Jupyter Book.
+
+Estos pasos se toman de la documentación oficial, por lo tanto, si tienes algún inconveniente o deseas conocer más detalles, puedes consultar allí.
+
+# Reporte de problemas
+Como en cualquier proyecto de GitHub, la mejor forma de dar seguimiento y solución a los posibles inconvenientes que puedan surgir es mediante el uso de los `issues`. Ante cualquier problema, te invitamos a abrir uno nuevo y se tratará de resolver tan pronto como sea posible.
