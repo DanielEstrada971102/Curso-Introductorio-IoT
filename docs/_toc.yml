@@ -1,7 +1,0 @@
-format: jb-book
-root: docs
-chapters:
-  - file: introduccion.md
-  - file: Arduino/README.md
-  - file: Mongo/README.md
-  - file: APIs/README.md
