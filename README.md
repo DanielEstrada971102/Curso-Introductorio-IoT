@@ -12,6 +12,9 @@ Si eres contribuidor de este proyecto, por favor, trata de seguir las pautas par
 jupyter-book build content/
 ```
 Esto actualizará y construirá los archivos HTML necesarios para desplegar el sitio.
+```{warning}
+Puede ser necesario, para evitar inconsistencias con el contenido que se motrará en le sitio, borrar el directorio `_build/` que se genera cuando se construye el Jupyter Book. De no borrarlo, puede ocurrir que contenido viejo que se borro en una versión más reciente quede como remanente en los archivos.
+```
 * Confirmar y hacer `push` a los cambios en la rama principal del repositorio.
 * Actualizar la rama `gh-pages` con el siguiente comando:
 ```bash

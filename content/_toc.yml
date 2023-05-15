@@ -2,10 +2,10 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: welcome
+root: 00-bienvenida
 chapters:
 #- file: markdown
-- file: Introduccion-IoT
-- file: muestreo
-- file: notebooks
-- file: markdown-notebooks
+- file: 01-iot-intro
+- file: 02-hardware-dispositivos-adquisicion
+- file: 03-almancenamiento-conectividad
+- file: 04-visualizacion-gestion
