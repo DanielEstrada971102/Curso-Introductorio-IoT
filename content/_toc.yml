@@ -7,5 +7,11 @@ chapters:
 #- file: markdown
 - file: 01-iot-intro
 - file: 02-hardware-dispositivos-adquisicion
+  sections:
+    - file: 02-actividades
 - file: 03-almancenamiento-conectividad
+  sections:
+    - file: 03-actividades
 - file: 04-visualizacion-gestion
+  sections:
+    - file: 04-actividades
