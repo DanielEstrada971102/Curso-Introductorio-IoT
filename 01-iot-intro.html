@@ -1,0 +1,530 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Internet de las cosas &#8212; Curso Introductorio a IoT</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '01-iot-intro';</script>
+    <link rel="shortcut icon" href="_static/page-icon-2.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="To Fill" href="02-hardware-dispositivos-adquisicion.html" />
+    <link rel="prev" title="Curso Introductorio a IoT" href="00-bienvenida.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="00-bienvenida.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00-bienvenida.html">
+                    Curso Introductorio a IoT
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Internet de las cosas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-hardware-dispositivos-adquisicion.html">To Fill</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-almancenamiento-conectividad.html">To Fill</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-visualizacion-gestion.html">To Fill</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT/issues/new?title=Issue%20on%20page%20%2F01-iot-intro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/01-iot-intro.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Internet de las cosas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-iot">¿Qué es IoT?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estructura-de-un-sistema-iot">Estructura de un sistema IoT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teconologias-para-iot">Teconologías para IoT</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><img alt="images" src="_images/IoT_header.png" /></p>
+<section class="tex2jax_ignore mathjax_ignore" id="internet-de-las-cosas">
+<h1>Internet de las cosas<a class="headerlink" href="#internet-de-las-cosas" title="Permalink to this heading">#</a></h1>
+<section id="que-es-iot">
+<h2>¿Qué es IoT?<a class="headerlink" href="#que-es-iot" title="Permalink to this heading">#</a></h2>
+<figure class="margin align-right" id="fig1">
+<a class="reference internal image-reference" href="_images/Fig1-notRed.png"><img alt="_images/Fig1-notRed.png" src="_images/Fig1-notRed.png" style="width: 217.7px; height: 205.1px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">imagen tomada de <a class="reference external" href="https://www.flaticon.es/iconos-gratis/computadora">https://www.flaticon.es/iconos-gratis/computadora</a></span><a class="headerlink" href="#fig1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Internet de las cosas (IoT - <em>Internet Of Thing</em>) hace referencia a los dispositivos físicos u objetos que se conectan e intercambian información a través de redes de comunicación como internet. En esta definición, se debe hacer una salvedad en a qué hace referencia “cosas” en el nombre, esto porque a partir de lo declarado, sería válido decir, por ejemplo, que una instalación de equipos de cómputo ordinarios conectados a través de una red local satisface las condiciones para representar un sistema IoT (<a class="reference internal" href="#fig1"><span class="std std-ref">Fig. 1</span></a>). Sin embargo, las “cosas” en este contexto siempre querrán hacer referencia a <strong>objetos o dispositivos que comúnmente no están asociados con internet o algún tipo de comunicación por red</strong>. Con esto en mente, el objetivo en este campo es equipar estas “cosas” con sensores, software y tecnología de red para conectarlos, configurarlos y controlarlos, recopilando y transmitiendo datos a través, principalmente, pero no restringido, de internet. Casi cualquier objeto puede ser susceptible de adaptarse como un dispositivo IoT, simplemente proporcionándole “inteligencia computacional” y un mecanismo para conectarse a una red. Así, objetos simples pueden potenciarse para proporcionar aplicaciones más amplias y eficientes. Alguno de los ejemplos clásicos de dispositivos IoT incluyen el <a class="reference external" href="https://www.goodhousekeeping.com/appliances/refrigerator-reviews/g39784846/smart-refrigerators/">refrigerador inteligente</a>, los <a class="reference external" href="https://www.technologyhq.org/smart-vehicles-and-internet-of-things-what-changes-it-will-bring-to-our-lives/">automóviles inteligentes</a> y algunos dispositivos de <a class="reference external" href="https://ordr.net/article/iot-healthcare-examples/">monitoreo médico</a>.</p>
+<p>Es importante distinguir que los dispositivos genéricos de computación y similares no se consideran dispositivos IoT debido a su propósito. Mientras que las computadoras personales se diseñan para ser tecnologías multipropósito que pueden ejecutar diversas tareas y cómputos, los dispositivos IoT se refieren a tecnologías diseñadas con un propósito específico, equipadas con capacidad de cómputo, hardware y software enfocados en el cumplimiento de una tarea particular. Un ejemplo claro es el automóvil, que a pesar de poder integrar procesadores y sensores muy poderosos, su diseño se enfoca en cumplir una tarea muy específica: la conducción del vehículo.</p>
+<p>IoT es un campo que ha experimentado un crecimiento exponencial en las últimas décadas, gracias a varios factores. Uno de ellos es la reducción de costos y la miniaturización de las tecnologías de cómputo, lo que facilita su integración en diferentes dispositivos. Además, el aumento en las capacidades de cómputo ha permitido que procesar información que antes representaba grandes desafíos computacionales, ahora sea posible a través de servicios en la nube, como el procesamiento de texto, imágenes o lenguaje natural. Es importante destacar acorde a lo último, que la conectividad a internet es un requisito fundamental para IoT, y la creciente cobertura y accesibilidad de internet ha desempeñado un papel clave en el desarrollo y expansión de estas tecnologías.</p>
+<p>En el contexto mundial, la implementación de las tecnologías IoT tiene un gran potencial de transformar la forma en que las personas interactúan con el mundo físico y cómo las empresas operan y toman decisiones. Esto, porque los datos que se recopilan pueden ser analizados y utilizados para crear soluciones inteligentes y automatizadas, como la optimización de procesos de producción de una empresa, el monitoreo de la salud y el bienestar, la gestión de inventarios, la seguridad del hogar, entre otros. Sin embargo, el uso de IoT también conlleva ciertas desventajas. Por un lado, existe el riesgo de potenciar el aislamiento social, ya que la automatización y la comunicación a través de dispositivos pueden reemplazar la interacción humana cara a cara. Por otro lado, muchos procesos y actividades cotidianas se vuelven dependientes de la infraestructura de red, lo que significa que una caída en la conectividad puede tener consecuencias graves. Además, la exposición constante de información personal a través de dispositivos IoT puede poner en riesgo la privacidad y seguridad del usuario, ya que pueden ser usados para el mercadeo o incluso para cometer delitos cibernéticos.</p>
+</section>
+<section id="estructura-de-un-sistema-iot">
+<h2>Estructura de un sistema IoT<a class="headerlink" href="#estructura-de-un-sistema-iot" title="Permalink to this heading">#</a></h2>
+<figure class="align-default" id="fig2">
+<a class="reference internal image-reference" href="_images/Fig2-Iot_Components.png"><img alt="_images/Fig2-Iot_Components.png" src="_images/Fig2-Iot_Components.png" style="width: 705.0px; height: 301.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">imagen tomada de <a class="reference external" href="https://techvidvan.com/tutorials/architecture-of-iot">https://techvidvan.com/tutorials/architecture-of-iot</a></span><a class="headerlink" href="#fig2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Un sistema IoT involucra varias etapas o procesos, que van desde la elección e implementación del hardware hasta la visualización y análisis de los datos obtenidos del sistema. En términos generales, se puede dividir el sistema en 3 etapas, cada una de las cuales representa una fase del desarrollo de un sistema IoT:</p>
+<p>La primera capa es la de dispositivos y hardware, la cual implica el diseño, fabricación y configuración de los dispositivos físicos, como sensores y actuadores, así como la conectividad de red necesaria para enviar y recibir datos de los dispositivos.</p>
+<p>La segunda capa es la de infraestructura y conectividad, que se enfoca en la infraestructura necesaria para admitir la comunicación y el intercambio de datos entre los dispositivos IoT y los servidores o la nube.</p>
+<p>La tercera capa es la de aplicaciones y experiencia del usuario, la cual está relacionada con la interfaz de usuario y la experiencia que tiene el usuario final. Aquí es donde se desarrollan las aplicaciones y las interfaces que permiten a los usuarios interactuar con los dispositivos IoT y aprovechar los datos recopilados.</p>
+<p>Es importante destacar que estas capas no son necesariamente secuenciales y pueden superponerse en ciertos casos. Además, a medida que la tecnología IoT evoluciona, surgen nuevas etapas y tecnologías. Sin embargo, esta visión proporciona una estructura básica para comprender los componentes principales de un sistema IoT.</p>
+</section>
+<section id="teconologias-para-iot">
+<h2>Teconologías para IoT<a class="headerlink" href="#teconologias-para-iot" title="Permalink to this heading">#</a></h2>
+<p>En la primera etapa del desarrollo de sistemas IoT, se utilizan tecnologías como Arduino o Raspberry Pi para crear dispositivos físicos que incluyen sensores y actuadores para recopilar datos del entorno y llevar a cabo acciones físicas en respuesta. Los datos recopilados por los dispositivos IoT se transmiten a través de protocolos de comunicación como MQTT, CoAP o HTTP, para enviarlos a la infraestructura subyacente. La conectividad de los dispositivos IoT se logra mediante tecnologías de red como Wi-Fi, Bluetooth, Zigbee o LoRaWAN, que permiten establecer conexiones y conectar los dispositivos a la infraestructura de comunicación necesaria. Es importante mencionar que algunas de estas tarjetas pueden no proporcionar conectividad a internet, sin embargo, relegan entonces sus tareas de conectividad a gateways auxiliares para resolver este problema.</p>
+<p>En la fase de infraestructura y conectividad, se emplean diversas tecnologías para lograr una comunicación eficiente y un intercambio fluido de datos entre los dispositivos IoT y la nube. Las plataformas en la nube, como AWS IoT, Google Cloud IoT o Microsoft Azure IoT, ofrecen servicios de almacenamiento, procesamiento y análisis de datos, lo que permite gestionar de manera eficiente y escalable grandes volúmenes de información. Los gateways desempeñan un papel esencial al actuar como intermediarios que facilitan la comunicación y el enrutamiento de datos entre los dispositivos IoT y la infraestructura en la nube. En cuanto al almacenamiento y gestión de datos, se utilizan bases de datos tanto relacionales como NoSQL, destacando MongoDB como ejemplo en este ámbito. Además, existen frameworks como Flask o FastAPI, y lenguajes como JavaScript, que proporcionan un marco de desarrollo de aplicaciones web, permitiendo la creación de servicios e interfaces de programación de aplicaciones (APIs), fomentando una comunicación e interacción fluida entre los dispositivos IoT, la nube, y el usuario.</p>
+<p>En la etapa de Aplicaciones y Experiencia del Usuario en los sistemas IoT, se emplean diversas tecnologías con el objetivo de mejorar la interacción y experiencia del usuario. Se desarrollan aplicaciones móviles y web para que los usuarios puedan interactuar con los dispositivos IoT y acceder a los datos en tiempo real. Las APIs permiten la integración de los sistemas IoT con otras aplicaciones y servicios, facilitando una comunicación y un intercambio de datos eficientes. En esta fase, se utilizan tecnologías como Java, Jupyter y PyQt. Jupyter es una plataforma interactiva que combina código, visualizaciones y texto, lo cual resulta útil para el análisis y visualización de los datos generados por los dispositivos IoT. PyQt, por su parte, es una biblioteca de enlaces para Python que facilita el desarrollo de interfaces gráficas de usuario (GUI) para aplicaciones IoT, mejorando la interacción del usuario con los dispositivos y los datos recopilados.</p>
+<p>Adicionalmente, como la seguridad es un aspecto crítico en un sistema IoT, se deben implementar medidas para proteger los datos y dispositivos de posibles ataques. Estas medidas pueden incluir la autenticación y autorización de usuarios, el cifrado de datos, el control de acceso y la segmentación de redes. Se pueden utilizar protocolos de seguridad como TLS y SSH para cifrar las comunicaciones y proteger los datos de IoT. Sin embargo, este tema se encuentra fuera del alcance de este curso.</p>
+<p>De lo visto, la tecnología subyacente a conocer para embarcarse en IoT incluye la programación y adaptación de hardware, la conectividad de red, la computación en la nube, la inteligencia artificial y la analítica de datos. Por lo tanto, en adelante, encontrará material que le permitirá adquirir los conocimientos básicos para el desarrollo de sistemas IoT simples utilizando algunas de las tecnologías mencionadas, como Arduino, Raspberry Pi, MongoDB, Python y JavaScript.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="00-bienvenida.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Curso Introductorio a IoT</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02-hardware-dispositivos-adquisicion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">To Fill</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-iot">¿Qué es IoT?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estructura-de-un-sistema-iot">Estructura de un sistema IoT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teconologias-para-iot">Teconologías para IoT</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Daniel Estrada & Fabián Castaño / Universidad de Antioquia - GICM
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
