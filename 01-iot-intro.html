@@ -161,6 +161,8 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Internet de las cosas</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="02-hardware-dispositivos-adquisicion.html">Dispositivos y Hardware</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="02-1-sensores.html">Sensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-2-senales.html">Señales</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02-actividades.html">Actividades</a></li>
 </ul>
 </li>
@@ -380,14 +382,14 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><img alt="images" src="_images/IoT_header.png" /></p>
-<section class="tex2jax_ignore mathjax_ignore" id="internet-de-las-cosas">
+<section id="internet-de-las-cosas">
 <h1>Internet de las cosas<a class="headerlink" href="#internet-de-las-cosas" title="Permalink to this heading">#</a></h1>
 <section id="que-es-iot">
 <h2>¿Qué es IoT?<a class="headerlink" href="#que-es-iot" title="Permalink to this heading">#</a></h2>
 <figure class="margin align-right" id="fig1">
 <a class="reference internal image-reference" href="_images/Fig1-notRed.png"><img alt="_images/Fig1-notRed.png" src="_images/Fig1-notRed.png" style="width: 217.7px; height: 205.1px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">imagen tomada de <a class="reference external" href="https://www.flaticon.es/iconos-gratis/computadora">https://www.flaticon.es/iconos-gratis/computadora</a></span><a class="headerlink" href="#fig1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">imagen tomada de https://www.flaticon.es/iconos-gratis/computadora</span><a class="headerlink" href="#fig1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Internet de las cosas (IoT - <em>Internet Of Thing</em>) hace referencia a los dispositivos físicos u objetos que se conectan e intercambian información a través de redes de comunicación como internet. En esta definición, se debe hacer una salvedad en a qué hace referencia “cosas” en el nombre, esto porque a partir de lo declarado, sería válido decir, por ejemplo, que una instalación de equipos de cómputo ordinarios conectados a través de una red local satisface las condiciones para representar un sistema IoT (<a class="reference internal" href="#fig1"><span class="std std-ref">Fig. 1</span></a>). Sin embargo, las “cosas” en este contexto siempre querrán hacer referencia a <strong>objetos o dispositivos que comúnmente no están asociados con internet o algún tipo de comunicación por red</strong>. Con esto en mente, el objetivo en este campo es equipar estas “cosas” con sensores, software y tecnología de red para conectarlos, configurarlos y controlarlos, recopilando y transmitiendo datos a través, principalmente, pero no restringido, de internet. Casi cualquier objeto puede ser susceptible de adaptarse como un dispositivo IoT, simplemente proporcionándole “inteligencia computacional” y un mecanismo para conectarse a una red. Así, objetos simples pueden potenciarse para proporcionar aplicaciones más amplias y eficientes. Alguno de los ejemplos clásicos de dispositivos IoT incluyen el <a class="reference external" href="https://www.goodhousekeeping.com/appliances/refrigerator-reviews/g39784846/smart-refrigerators/">refrigerador inteligente</a>, los <a class="reference external" href="https://www.technologyhq.org/smart-vehicles-and-internet-of-things-what-changes-it-will-bring-to-our-lives/">automóviles inteligentes</a> y algunos dispositivos de <a class="reference external" href="https://ordr.net/article/iot-healthcare-examples/">monitoreo médico</a>.</p>
@@ -400,7 +402,7 @@ document.write(`
 <figure class="align-default" id="fig2">
 <a class="reference internal image-reference" href="_images/Fig2-Iot_Components.png"><img alt="_images/Fig2-Iot_Components.png" src="_images/Fig2-Iot_Components.png" style="width: 705.0px; height: 301.0px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">imagen tomada de <a class="reference external" href="https://techvidvan.com/tutorials/architecture-of-iot">https://techvidvan.com/tutorials/architecture-of-iot</a></span><a class="headerlink" href="#fig2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">imagen tomada de https://techvidvan.com/tutorials/architecture-of-iot</span><a class="headerlink" href="#fig2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Un sistema IoT involucra varias etapas o procesos, que van desde la elección e implementación del hardware hasta la visualización y análisis de los datos obtenidos del sistema. En términos generales, se puede dividir el sistema en 3 etapas, cada una de las cuales representa una fase del desarrollo de un sistema IoT:</p>
