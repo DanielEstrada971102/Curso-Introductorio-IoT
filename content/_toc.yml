@@ -2,18 +2,20 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: 00-bienvenida
+root: 00-informacion-curso
 chapters:
-#- file: markdown
 - file: 01-iot-intro
-- file: 02-hardware-dispositivos-adquisicion
+- file: 02-Hardware/00-hardware-intro
   sections:
-    - file: 02-1-sensores
-    - file: 02-2-senales
-    - file: 02-actividades
-- file: 03-almancenamiento-conectividad
+    - file: 02-Hardware/01-sensors-signals
+    - file: 02-Hardware/02-acquisition-devices
+      sections:
+      - file: 02-Hardware/02-1-arduino
+      - file: 02-Hardware/02-2-esp32
+      - file: 02-Hardware/02-3-raspberry
+    - file: 02-Hardware/03-actividad-1
+    - file: 02-Hardware/04-actividad-2
+- file: 03-Software/00-software-intro
   sections:
-    - file: 03-actividades
-- file: 04-visualizacion-gestion
-  sections:
-    - file: 04-actividades
+    - file: 03-Software/01-Backend
+    - file: 03-Software/02-Frontend

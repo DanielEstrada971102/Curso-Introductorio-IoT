@@ -1,0 +1,644 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Sensores y señales &#8212; Curso Introductorio a IoT</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02-Hardware/01-sensors-signals';</script>
+    <link rel="shortcut icon" href="../_static/page-icon-2.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sistemas de adquisición" href="02-acquisition-devices.html" />
+    <link rel="prev" title="Dispositivos y Hardware" href="00-hardware-intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../00-informacion-curso.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00-informacion-curso.html">
+                    Información del curso
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-iot-intro.html">Internet de las cosas</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00-hardware-intro.html">Dispositivos y Hardware</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Sensores y señales</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="02-acquisition-devices.html">Sistemas de adquisición</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="02-1-arduino.html">Arduino</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02-2-esp32.html">ESP32</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02-3-raspberry.html">Raspberry Pi</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03-actividad-1.html">Actividad 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-actividad-2.html">Actividad 2 (opcional)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-Software/00-software-intro.html">Software</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-Software/01-Backend.html">Backend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-Software/02-Frontend.html">Frontend</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT/issues/new?title=Issue%20on%20page%20%2F02-Hardware/01-sensors-signals.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/02-Hardware/01-sensors-signals.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sensores y señales</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensores">Sensores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#senales">Señales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-analago-digital-adc">Conversión analago-digital (ADC)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion">Resolución</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-sensor-lm35-temperatura">Ejemplo: SENSOR LM35 - TEMPERATURA</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><img alt="images" src="../_images/sensores.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Respecto al tema de sensores, acondicionmiento de señales y adquisicón, cabe resaltar que la descripción que se dará acá es más que todo informativa, ya que entrar en detalles más profundos requeriría un curso completo de electrónica. Afortunadamente, en terminos practicos, no es algo indispensable, ya que en el mercado existen módulos dedicados que integran sensores con electrónica que se encargan de acondicionar las señales hasta el punto que solo basta conectarlos adecuadamente a las tarjetas de adquisición para lograr un sistema funcional. No obstante, tener esta infromación sigue siendo importante al momento de elegir qué tipo de sensores y actuadores utilizar, así como aspectos de la programación para la recolección de la información.</p>
+</div>
+<section id="sensores-y-senales">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Sensores y señales</a><a class="headerlink" href="#sensores-y-senales" title="Permalink to this heading">#</a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#sensores-y-senales" id="id1">Sensores y señales</a></p>
+<ul>
+<li><p><a class="reference internal" href="#sensores" id="id2">Sensores</a></p></li>
+<li><p><a class="reference internal" href="#senales" id="id3">Señales</a></p>
+<ul>
+<li><p><a class="reference internal" href="#conversion-analago-digital-adc" id="id4">Conversión analago-digital (ADC)</a></p></li>
+<li><p><a class="reference internal" href="#resolucion" id="id5">Resolución</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#ejemplo-sensor-lm35-temperatura" id="id6">Ejemplo: SENSOR LM35 - TEMPERATURA</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="sensores">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Sensores</a><a class="headerlink" href="#sensores" title="Permalink to this heading">#</a></h2>
+<p>Un sensor es un dispositivo electrónico diseñado para detectar y responder a estímulos físicos o químicos del entorno, convirtiéndolos en señales eléctricas que pueden ser procesadas e interpretadas para dar cuenta de algún fénomeno. Los sensores desempeñan un papel fundamental en los sistemas de IoT, ya que permiten recolectar información del mundo físico y enviarla a los dispositivos para su posterior análisis y toma de decisiones.</p>
+<p>Existen varios tipos de sensores, cada uno diseñado y optimizado para detectar algún tipo específico de estímulo que pueden varian tanto como fenomenos físicos, algunos ejemplos serían:</p>
+<ul class="simple">
+<li><p><strong>Sensores Acústicos:</strong> Se basan en al medición de ondas, espectros y velocidades de onda.</p></li>
+<li><p><strong>Sensores Eléctricos:</strong> Se basan en al medición de corrientes, carga, potenciales, campos eléctricos, permitividad y conductividad.</p></li>
+<li><p><strong>Sensores Magnéticos:</strong> Se basan en al medición de campos magnéticos, flujos magnéticos y permeabilidad.</p></li>
+<li><p><strong>Sensores Térmicos:</strong> Se basan en al medición de temperatura, calor específico y conductividad térmica.</p></li>
+<li><p><strong>Sensores Mecánicos:</strong> Se basan en al medición de posición, aceleración, fuerza, presión, estrés, deformación, masa, densidad, momento, torque, forma, orientación, rugosidad, rigidez, complianza, cristalinidad y estructural.</p></li>
+<li><p><strong>Sensores Ópticos:</strong> Se basan en al medición de intensidad lumínica, índice de refracción, reflectividad, absorción y emisividad.</p></li>
+</ul>
+<p>En el mercado se encuentra disponible una amplia variedad de sensores para diferentes aplicaciones. Algunos ejemplos comunes incluyen termistores, termopares y sensores de semiconductor para la medición de temperatura; fotodiodos, fototransistores y sensores de luz ambiente para la detección de luz; sensores infrarrojos pasivos, acelerómetros y giroscopios para la detección de movimiento; sensores capacitivos o resistivos para la medición de humedad; sensores piezoeléctricos o capacitivos para la medición de presión; y sensores electroquímicos, infrarrojos o de semiconductor para la detección de gases. Estos son solo algunos ejemplos, pero existen muchos otros tipos de sensores para diferentes aplicaciones. Es importante tener en cuenta que las señales generadas por los sensores generalmente son analógicas, es decir, varían en forma continua (con cierta resolución y limitación referentes al ruido ambiental). Pero, como se menciono antes, lo que se requieren son señales digitales para su procesamiento. Por lo tanto, antes de que la señal llegue a la placa de adquisión es común utilizar circuitos de acondicionamiento y convertidores analógico-digitales (ADC) para transformar las señales analógicas en señales digitales comprensibles por el microcontrolador. Esto ultimo es de vital importancia y se describe a continuación.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si quiere aprender más sobre sensores y sus aplicaciones, puedes consultar los siguientes recursos:</p>
+<ol class="arabic simple">
+<li><p>Introducción a los sensores y transductores <a class="reference external" href="https://www.electronicshub.org/sensors-and-transducers-introduction/">link</a>.</p></li>
+<li><p>Tipos de sensores con sus diagramas de circuito <a class="reference external" href="https://www.elprocus.com/types-of-sensors-with-circuits/">link</a>.</p></li>
+</ol>
+</div>
+</section>
+<section id="senales">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Señales</a><a class="headerlink" href="#senales" title="Permalink to this heading">#</a></h2>
+<p>La señal física al ser capturada por un sensor sufre cierta degradación debido a factores intrínsecos como la resolución y el tiempo de respuesta del transductor utilizado. Esto, junto con el objetivo de proporcionar una señal lo más precisa posible al sistema de conversión analógico-digital, justifica la inclusión de una etapa de acondicionamiento de la señal (<a class="reference internal" href="#acondicionamiento"><span class="std std-ref">Fig. 2</span></a>). Esta etapa tiene como finalidad mejorar la calidad de la señal, eliminar el ruido no deseado y adaptarla a los requisitos del sistema.</p>
+<figure class="align-default" id="acondicionamiento">
+<a class="reference internal image-reference" href="../_images/acondicionamineto.png"><img alt="../_images/acondicionamineto.png" src="../_images/acondicionamineto.png" style="width: 616.0px; height: 230.99999999999997px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">imagen tomada y modificada de <a class="reference external" href="https://es.wikipedia.org/wiki/Adquisici%C3%B3n_de_datos">link</a>.</span><a class="headerlink" href="#acondicionamiento" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Posterior al acondicionamiento, el siguiente proceso que sufre la señal es la transformación de una señal analogíca a digital.</p>
+<section id="conversion-analago-digital-adc">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Conversión analago-digital (ADC)</a><a class="headerlink" href="#conversion-analago-digital-adc" title="Permalink to this heading">#</a></h3>
+<p>La digitalización de señales se lleva a cabo mediante un dispositivo electrónico especializado que convierte una señal analógica continua en una señal digital compuesta por valores discretos que representan la información de la señal mediante valores numéricos (es conocido como un ADC por sus siglas en inglés). Este proceso se divide en cuatro etapas:</p>
+<p>En la primera etapa, conocida como <strong>muestreo</strong>, se toman muestras periódicas de la amplitud de la onda para pasar de tener un conjunto continuo de valores a uno discreto (<a class="reference internal" href="#muestreo"><span class="std std-ref">Fig. 3</span></a>). La frecuencia de muestreo debe cumplir con el teorema de <a class="reference external" href="https://es.wikipedia.org/wiki/Teorema_de_muestreo_de_Nyquist-Shannon">Nyquist-Shannon</a> para evitar la pérdida de información.</p>
+<figure class="align-default" id="muestreo">
+<a class="reference internal image-reference" href="../_images/muestreo.png"><img alt="../_images/muestreo.png" src="../_images/muestreo.png" style="width: 1178.0px; height: 194.4px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">imagen tomada de “Sedra, A., <em>Microelectronic circuits</em>, Fifth Ed. 2004”.</span><a class="headerlink" href="#muestreo" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>La siguiente etapa es la <strong>retención</strong>, donde las muestras tomadas se mantienen en un circuito especializado durante un tiempo suficiente para permitir su evaluación en términos de nivel (cuantificación). Aunque este proceso es necesario debido a limitaciones prácticas, no se considera en el análisis matemático y no cuenta con un modelo matemático específico.</p>
+<figure class="margin align-right" id="adc-flash-esquema">
+<a class="reference internal image-reference" href="../_images/ADC_esquema-3bits.png"><img alt="../_images/ADC_esquema-3bits.png" src="../_images/ADC_esquema-3bits.png" style="width: 275.2px; height: 418.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">El digitalizador más simple conceptualmente - el ADC flash. Imagen tomada de <a class="reference external" href="https://www.digikey.com/es/articles/match-the-right-adc-to-the-application">link</a></span><a class="headerlink" href="#adc-flash-esquema" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>En la etapa de <strong>cuantificación</strong>, se mide el nivel de voltaje de cada muestra y se asigna un rango de valores de la señal analizada a un único nivel de salida. Sin embargo, a partir de esta etapa, la transformación de la señal no puede ser invertida completamente debido a la pérdida de información inherente al redondeo, lo que se conoce como ruido de cuantificación. En terminos practicos, la asignación puede visualizarse a través de un circuito conceptual que ayuda a comprender el proeso (<a class="reference internal" href="#adc-flash-esquema"><span class="std std-ref">Fig. 4</span></a>).</p>
+<figure class="align-default" id="cuantificacion">
+<a class="reference internal image-reference" href="../_images/cuantificacion.png"><img alt="../_images/cuantificacion.png" src="../_images/cuantificacion.png" style="width: 479.15px; height: 296.45px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Representación gráfica de un proceso de cuantificación de 3 bits.</span><a class="headerlink" href="#cuantificacion" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Finalmente, en la etapa de <strong>codificación</strong>, se traducen los valores obtenidos durante la cuantificación al código binario, lo que permite el procesamiento de la información. Está etapa se logra en la <a class="reference internal" href="#adc-flash-esquema"><span class="std std-ref">Fig. 4</span></a> gracias al modulo etiquetado como “Encoder”. La codificación a binario no es un proceso muy complejo, para ilustrarlo tome como ejemplo el numero 6, si se quisiera llevar esto a la base binaria, se operaria obteniendo los residuos:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\text{LSB} \rightarrow \hspace{1cm}&amp; r(\underbrace{\frac{6}{2}}_{\text{Cociente = 3}}) = 0, \\
+ \hspace{1cm} &amp; r(\underbrace{\frac{3}{2}}_{\text{Cociente = 1}}) = 1, \\
+ \text{MSB} \rightarrow \hspace{1cm}&amp; r(\underbrace{\frac{1}{2}}_{\text{Cociente = 0}}) = 1,\\
+\end{align*}\]</div>
+<p>Con esto, el numero 6 en represenación binaria resulta en <strong>110</strong>.</p>
+</section>
+<section id="resolucion">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Resolución</a><a class="headerlink" href="#resolucion" title="Permalink to this heading">#</a></h3>
+<p>La resolución de un ADC hace referencia a la mínima escala de voltaje que es capaz de identificar el cuantificador. Claramente esto dependerá entonces de los voltajes de referencia y de la cantidad de bits que contiene el conversor (cuantos niveles hay disponibles). Si se toma un caso particular como el del Arduino, que usualmente cuenta con un ADC de  n=10 bits y unos voltajes de referencia de 0 - 5 V, se puede estimar la resolución del ADC como:</p>
+<p>$$ R = \frac{\Delta V}{2^n} = \frac{5 V}{2^{10}} = 4.8 mV.$$</p>
+<div class="admonition-info admonition">
+<p class="admonition-title">info</p>
+<p>Acá se deja un link con un código que simula el muestre de una señal.
+<a class="reference external" href="https://colab.research.google.com/drive/1hiGdkQvX7JDZTz59b5MeMpeyOZgs5sOa?usp=sharing">https://colab.research.google.com/drive/1hiGdkQvX7JDZTz59b5MeMpeyOZgs5sOa?usp=sharing</a></p>
+</div>
+</section>
+</section>
+<section id="ejemplo-sensor-lm35-temperatura">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Ejemplo: SENSOR LM35 - TEMPERATURA</a><a class="headerlink" href="#ejemplo-sensor-lm35-temperatura" title="Permalink to this heading">#</a></h2>
+<p>Este ejemplo ilustra la importancia del acondicionamiento de una señal para aprovechar al máximo las características del sistema de adquisición.</p>
+<figure class="align-default" id="lm35">
+<a class="reference internal image-reference" href="../_images/lm35.png"><img alt="../_images/lm35.png" src="../_images/lm35.png" style="width: 603.6px; height: 165.9px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Configuraciones básicas de conexión del encapsulado. Tomado del datasheet del componente <a class="reference external" href="https://www.ti.com/lit/ds/symlink/lm35.pdf">link</a>.</span><a class="headerlink" href="#lm35" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>El LM35 es sensor encapsulado que proporciona una salida analógica (voltaje) proporcional a la temperatura a una relación de 10 mV por cada grado centígrado. En su configuración más sencilla (<a class="reference internal" href="#lm35"><span class="std std-ref">Fig. 6</span></a>), la salida corresponde a: 0 V para 2 °C, y 1.48 V para 150 °C. Si suponemos que se está monitoreando un sistema físico cuya variación en temperatura va desde 15 °C a 40 °C, es fácil ver que sin una etapa de acondicionamiento se desaprovecha la resolución del ADC y se alcanza una resolución de medición del fenómeno de tan solo ~ 0.5 °C, lo cual puede no ser suficiente dependiendo de la aplicación, veamos:</p>
+<p>Considerando que el LM35 sin acondicionamiento marcaría 0.13 V para 15 °C y 0.38 V para 40 °C, entonces el número de datos que se pueden distinguir en el rango de medida con el ADC de resolución R = 4.8 mV, sería:</p>
+<p>$$N = \frac{0.38 - 0.13}{0.0048} = 52,$$</p>
+<p>con esto, el ADC distingue 52 niveles en este rango, es decir, se tiene una resolución aproximada de 0.5 °C.</p>
+<p>Sin embargo, añadiendo una etapa de acondicionamiento es posible mejorar la resolución. Basta con transformar la señal de tal forma que el rango 0.13 V - 0.38 V correspondan a 0 V - 5 V respectivamente, recuperando así las 1024 divisiones que nos proporciona el ADC y por tanto obteniendo una resolución de medición aproximada de 0.025 °C. Es fácil ver que la transformación a aplicar sería:</p>
+<figure class="align-default" id="lm35-conv">
+<a class="reference internal image-reference" href="../_images/lm35-conversion.png"><img alt="../_images/lm35-conversion.png" src="../_images/lm35-conversion.png" style="width: 368.5px; height: 163.25px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Tranformación, esto se puede lograr a través del uso de amplificadores operacionales <a class="reference external" href="https://tallerelectronica.com/2018/01/04/configuraciones-basicas-de-amplificadores-operacionales/">link</a>.</span><a class="headerlink" href="#lm35-conv" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si quieres aprender más sobre el procesamiento de señales, puedes consultar los siguientes recursos:</p>
+<ol class="arabic simple">
+<li><p>Adquirir una Señal Analógica: Ancho de Banda, Teorema de Muestreo de Nyquist y Aliasing. <a class="reference external" href="https://www.ni.com/es-co/shop/data-acquisition/measurement-fundamentals-main-page/analog-fundamentals/acquiring-an-analog-signal--bandwidth--nyquist-sampling-theorem-.html">link</a></p></li>
+<li><p>Teledyne SP Devices, <em>The art of pulse detection</em>, 2018, <a class="reference external" href="https://www.spdevices.com/documents/application-notes/73-pulse-detection-application-note/file">pdf</a>.</p></li>
+</ol>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./02-Hardware"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="00-hardware-intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Dispositivos y Hardware</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02-acquisition-devices.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Sistemas de adquisición</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensores">Sensores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#senales">Señales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-analago-digital-adc">Conversión analago-digital (ADC)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion">Resolución</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-sensor-lm35-temperatura">Ejemplo: SENSOR LM35 - TEMPERATURA</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Daniel Estrada & Fabián Castaño / Universidad de Antioquia - GICM
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

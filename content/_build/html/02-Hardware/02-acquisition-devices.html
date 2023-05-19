@@ -1,0 +1,581 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Sistemas de adquisición &#8212; Curso Introductorio a IoT</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02-Hardware/02-acquisition-devices';</script>
+    <link rel="shortcut icon" href="../_static/page-icon-2.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Arduino" href="02-1-arduino.html" />
+    <link rel="prev" title="Sensores y señales" href="01-sensors-signals.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../00-informacion-curso.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00-informacion-curso.html">
+                    Información del curso
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-iot-intro.html">Internet de las cosas</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00-hardware-intro.html">Dispositivos y Hardware</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01-sensors-signals.html">Sensores y señales</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Sistemas de adquisición</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="02-1-arduino.html">Arduino</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02-2-esp32.html">ESP32</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02-3-raspberry.html">Raspberry Pi</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03-actividad-1.html">Actividad 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-actividad-2.html">Actividad 2 (opcional)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-Software/00-software-intro.html">Software</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-Software/01-Backend.html">Backend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-Software/02-Frontend.html">Frontend</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT/issues/new?title=Issue%20on%20page%20%2F02-Hardware/02-acquisition-devices.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/02-Hardware/02-acquisition-devices.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sistemas de adquisición</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microcontroladores">Microcontroladores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microprocesadores">Microprocesadores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microcomputadoras">Microcomputadoras</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fpga">FPGA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programacion">Programación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#placas-de-desarrollo">Placas de desarrollo</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="sistemas-de-adquisicion">
+<h1><a class="toc-backref" href="#id5" role="doc-backlink">Sistemas de adquisición</a><a class="headerlink" href="#sistemas-de-adquisicion" title="Permalink to this heading">#</a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#sistemas-de-adquisicion" id="id5">Sistemas de adquisición</a></p>
+<ul>
+<li><p><a class="reference internal" href="#microcontroladores" id="id6">Microcontroladores</a></p></li>
+<li><p><a class="reference internal" href="#microprocesadores" id="id7">Microprocesadores</a></p></li>
+<li><p><a class="reference internal" href="#microcomputadoras" id="id8">Microcomputadoras</a></p></li>
+<li><p><a class="reference internal" href="#fpga" id="id9">FPGA</a></p></li>
+<li><p><a class="reference internal" href="#programacion" id="id10">Programación</a></p></li>
+<li><p><a class="reference internal" href="#placas-de-desarrollo" id="id11">Placas de desarrollo</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>Una vez la señal a registrar se ha digitalizado, esta es adquirida y enrutada hacia la nube a través de los getway por una unidad de procesamiento y control programada con este fin. Como se comentó antes, este sistema de computo puede variar según las necesidades del propio sistema, pero en términos generales uno puede destacar cuatro tipos de tecnologías que se pueden emplear: Los microcontroladores, los microprocesadores, los microcomputadores e incluso las FPGAs. Estos se han nombrado en orden de complejidad interna y poder de computó.</p>
+<section id="microcontroladores">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Microcontroladores</a><a class="headerlink" href="#microcontroladores" title="Permalink to this heading">#</a></h2>
+<figure class="margin align-right" id="id1">
+<a class="reference internal image-reference" href="../_images/microcontroladores.png"><img alt="../_images/microcontroladores.png" src="../_images/microcontroladores.png" style="width: 260.40000000000003px; height: 213.20000000000002px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Microcontroladores.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Un microcontrolador es un circuito integrado o “chip” compacto y altamente integrado, que combina en un solo encapsulado un gran número de componentes y que tiene la capacidad de ser programado. Está especialmente diseñado para controlar y supervisar sistemas en tiempo real. Los microcontroladores son reconocidos por su eficiencia energética, tamaño reducido y bajo costo. Además, suelen contar con una arquitectura RISC (Reduced Instruction Set Computer) que los hace adecuados para aplicaciones con recursos limitados, lo cual es ideal para proyectos de IoT y sistemas embebidos de diversos niveles de complejidad. Un microcontrolador debe incluir tres elementos básicos en su interior: una unidad central de procesamiento (CPU), varios tipos de memorias (volátiles y persistentes) y diferentes tipos de entradas y salidas. Algunos de los microcontroladores más comunes y populares en el mercado son el PIC (Peripheral Interface Controller) de Microchip, el STM32 de STMicroelectronics y los diferentes microcontroladores de la familia AVR de Atmel, que son lo que se integran en las placas Arduino. [ref Torrente, O. 2013]</p>
+</section>
+<section id="microprocesadores">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Microprocesadores</a><a class="headerlink" href="#microprocesadores" title="Permalink to this heading">#</a></h2>
+<figure class="margin align-right" id="id2">
+<a class="reference internal image-reference" href="../_images/microprocesadores.png"><img alt="../_images/microprocesadores.png" src="../_images/microprocesadores.png" style="width: 140.4px; height: 277.6px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Microprocesadores.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Son dispositivos electrónicos que contienen una unidad central de procesamiento (CPU), junto con otros componentes esenciales para su funcionamiento, pero, a diferencia de los microcontroladores, los microprocesadores generalmente no incluyen periféricos integrados en el chip, y se espera que se conecten a través de buses externos. Además, los microprocesadores suelen tener una memoria caché de nivel 1, pero requieren módulos de memoria externos para el almacenamiento principal. Los microprocesadores son más potentes y pueden incluso llegar ejecutar sistemas operativos completos y aplicaciones más complejas. Estos chips son conocidos por su capacidad de procesamiento, flexibilidad y capacidad para ejecutar tareas exigentes. Algunas de las características comunes de los microprocesadores incluyen múltiples núcleos de procesamiento, altas frecuencias de reloj y cachés de memoria de gran tamaño. Entre los microprocesadores más populares se encuentran los fabricados por Intel y AMD, como los procesadores Intel Core i7 y los AMD Ryzen.</p>
+</section>
+<section id="microcomputadoras">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Microcomputadoras</a><a class="headerlink" href="#microcomputadoras" title="Permalink to this heading">#</a></h2>
+<p>También conocidos como microordenadores de placa única (SBC, por sus siglas en inglés), son dispositivos compactos que integran en una sola placa un microprocesador, memoria, entradas/salidas y periféricos, así como puertos de conexión como USB, HDMI, Ethernet, entre otros. Estos dispositivos son similares a los microprocesadores en cuanto a su capacidad de ejecutar sistemas operativos completos y aplicaciones más complejas, pero se diferencian en que incluyen componentes adicionales para brindar capacidades de conectividad y expansión. Algunos de los microcomputadores más comunes y populares en el mercado incluyen la Raspberry Pi, la BeagleBone Black y la Odroid.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/microcomputadoras.png"><img alt="../_images/microcomputadoras.png" src="../_images/microcomputadoras.png" style="width: 1017.2px; height: 201.60000000000002px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Microordedenadores.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="fpga">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">FPGA</a><a class="headerlink" href="#fpga" title="Permalink to this heading">#</a></h2>
+<p>Son dispositivos electrónicos que ofrecen una alta flexibilidad y capacidad de personalización en términos de hardware. A diferencia de los microcontroladores y microprocesadores, las FPGA permiten configurar y reconfigurar la lógica digital en el campo, lo que significa que se pueden adaptar y modificar según las necesidades específicas de una aplicación. Estos dispositivos contienen una matriz de bloques lógicos y elementos de interconexión que pueden programarse para realizar funciones lógicas y de procesamiento. Las FPGA son ideales para aplicaciones que requieren un alto rendimiento, procesamiento paralelo y adaptabilidad, como sistemas de comunicaciones, procesamiento de señales, aceleración de algoritmos, prototipado rápido y más. Algunas de las FPGA más comunes y populares en el mercado son las de Xilinx, como las series Virtex y Spartan, y las de Intel (anteriormente Altera), como las series Cyclone y Stratix. La últimas tendencias en este campo apuntan a placas que integran la teconolgía FPGA y los microprocesadores.</p>
+</section>
+<section id="programacion">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Programación</a><a class="headerlink" href="#programacion" title="Permalink to this heading">#</a></h2>
+<p>Es claro, entonces, que la elección de la tecnología a utilizar como unidad de adquisición y procesamiento dependerá de las características del proyecto. Una vez definido esto, el siguiente paso es la programación de estas tecnologías. Cada una tiene su enfoque específico. Los microcontroladores se programan en lenguajes de bajo nivel como C o ensamblador. Sin embargo, es importante mencionar que existen alternativas de alto nivel que simplifican su uso, como entornos de desarrollo integrados o IDE. Por otro lado, los microprocesadores suelen ser programados utilizando lenguajes de alto nivel como C++, Java o Python, y se ejecutan en sistemas operativos. Los microcomputadores también admiten una amplia gama de lenguajes de programación y frameworks, lo que los hace flexibles en términos de desarrollo de software. En cuanto a las FPGA, se programan utilizando lenguajes de descripción de hardware (HDL) como VHDL o Verilog, que permiten describir la lógica y las conexiones dentro del dispositivo. Estos lenguajes se sintetizan y se cargan en la FPGA para su funcionamiento.</p>
+</section>
+<section id="placas-de-desarrollo">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Placas de desarrollo</a><a class="headerlink" href="#placas-de-desarrollo" title="Permalink to this heading">#</a></h2>
+<p>Hoy en día, la programación de microcontroladores y otros dispositivos no se realiza directamente quemando el programa en el microcontrolador, sino que se aprovechan los ecosistemas de desarrollo que se han creado. Estos ecosistemas ofrecen placas de desarrollo y entornos amigables y accesibles para prototipar y desarrollar proyectos con microcontroladores, microprocesadores y otros dispositivos. Un ejemplo destacado es Arduino, una plataforma ampliamente utilizada y de código abierto que proporciona una placa de desarrollo basada en microcontroladores. Cuenta con un entorno de programación intuitivo basado en C++ y una comunidad activa de usuarios. Otra placa popular es ESP32, que combina un microcontrolador de alto rendimiento con capacidades de conectividad Wi-Fi y Bluetooth. Es compatible con el entorno de desarrollo de Arduino, lo que lo convierte en una opción ideal para aplicaciones IoT. Por último, la Raspberry Pi es una placa de microcomputadora que permite ejecutar sistemas operativos completos y ofrece una amplia gama de puertos y capacidades. Esto la convierte en una elección versátil para proyectos de computación y automatización.</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/placas_de_desarrollo.png"><img alt="../_images/placas_de_desarrollo.png" src="../_images/placas_de_desarrollo.png" style="width: 590.0px; height: 202.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Placas de desarrollo.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A continuación, se mostrará cómo utilizar estas herramientas para el diseño del sistema electrónico de dispositivos IoT.</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./02-Hardware"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01-sensors-signals.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Sensores y señales</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02-1-arduino.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Arduino</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microcontroladores">Microcontroladores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microprocesadores">Microprocesadores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microcomputadoras">Microcomputadoras</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fpga">FPGA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programacion">Programación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#placas-de-desarrollo">Placas de desarrollo</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Daniel Estrada & Fabián Castaño / Universidad de Antioquia - GICM
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
