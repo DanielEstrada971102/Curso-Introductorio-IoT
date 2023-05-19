@@ -144,19 +144,15 @@ Para esta implementación se deben usar un par de librerias extra para establece
 
 ```{code-block} arduino
 /*
-Para asegurarse de tener los datos de conexión adecuados:
-1. Ve a http://www.hivemq.com/demos/websocket-client/
-2. Haz clic en "Conectar"
-3. Extrae los datos del Broker y el puerto.
-
 Para ver los datos:
 
-1. Ve a http://www.hivemq.com/demos/websocket-client/
-2. Haz clic en "Connect"
-3. En Suscripciones, haz clic en "Add new topic subscription"
-4. En el campo topic, escribe "example-topic" y luego haz clic en "Subscribe",
-   este será el mismo topico que debe remplazar en MQTT_TOPIC.
-5. la información deberá poder visualizarse. 
+1. Ir a https://iotudeab4a1-fabioc9675.b4a.run/
+2. Entrar a la pestaña MQTT Streaming
+3. El Broker para esta plaraforma es broker.emqx.io y el puerto 1883.
+3. Suscribase al topico iotUdeA/Nombre. Este corresponde al valor a poner en MQTT_TOPIC
+4. Una vez se comienza la publicación de los datos, la información deberá poder visualizarse
+   en el grafico. 
+
 */
 
 #include <WiFi.h>
@@ -166,9 +162,9 @@ Para ver los datos:
 // Declaración de constantes de red
 const char* WIFI_SSID = "Wokwi-GUEST";
 const char* WIFI_PASSWORD = "";
-const char* MQTT_BROKER = "mqtt-dashboard.com";
-const int MQTT_PORT = 8884;
-const char* MQTT_TOPIC = "example-topic";
+const char* MQTT_BROKER = "broker.emqx.io";
+const int MQTT_PORT = 1883;
+const char* MQTT_TOPIC = "iotUdeA/Daniel";
 
 // Declaración de pines
 #define DHTPIN 15          // Pin digital para el sensor DHT22
@@ -222,20 +218,18 @@ void loop() {
   float humidity = dht.getHumidity();
 
   // Mostrar la temperatura y la humedad en el monitor serial
-  Serial.print("Temperatura: ");
-  Serial.print(temperature);
-  Serial.println(" °C");
-  Serial.print("Humedad: ");
-  Serial.print(humidity);
-  Serial.println(" %");
+  Serial.println(
+    "{Temperatura: " 
+    + String(temperature)
+    + " °C, Humedad: "
+    + String(humidity)
+    + " %}"
+  );
 
   // Publicar los datos en el servidor MQTT
-  char temperatureStr[10];
-  dtostrf(temperature, 4, 2, temperatureStr);
-  char humidityStr[10];
-  dtostrf(humidity, 4, 2, humidityStr);
-  mqttClient.publish(MQTT_TOPIC, temperatureStr);
-  mqttClient.publish(MQTT_TOPIC, humidityStr);
+  // Solo se publica una variable para visualizar los datos en una grafica.
+  String payload = "{\"author\":\"Daniel\", \"varname\":\"Temperatura\", \"varvalue\":" + String(temperature) + "}";
+  mqttClient.publish(MQTT_TOPIC, (char *)payload.c_str());
 
   // Encender el LED si la temperatura supera el umbral
   if (temperature > TEMPERATURE_THRESHOLD) {
@@ -264,6 +258,9 @@ void reconnect() {
 void callback(char* topic, byte* payload, unsigned int length) {
   // Lógica de manejo de mensajes MQTT recibidos, si es necesario
 }
+
 ```
 
+## Raspberry Pi 4 - B
+PENDIENTE....
 
