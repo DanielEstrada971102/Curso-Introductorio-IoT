@@ -1,7 +1,7 @@
 # Curso-Introductorio-IoT
 Este curso introductorio proporcionará herramientas generales para la construcción de sistemas basados en Internet de las Cosas (IoT) y dará una visión general de los requerimientos técnicos y de diseño para la implementación de estos sistemas en diferentes entornos científicos e industriales.  Se cubren temas como la adquisición,  el procesamiento y la transmisión de datos mediante sistemas basados en Arduino, así como el almacenamiento y la persistencia de estos utilizando bases de datos como MongoDB. Además, los participantes aprenderán los fundamentos de la gestión y visualización a través de APIs basadas en Python.  Al finalizar el curso, se tendrá una comprensión sólida de las tecnologías básicas de IoT y estarán listos para aplicarlas en proyectos más avanzados.
 
-Para acceder al curso interactivo diríjace a [http://www.iotintro.com/](https://danielestrada971102.github.io/Curso-Introductorio-IoT/)
+Para acceder al curso interactivo diríjace a [https://danielestrada971102.github.io/Curso-Introductorio-IoT/](https://danielestrada971102.github.io/Curso-Introductorio-IoT/)
 
 # Contribuciones
 Si eres contribuidor de este proyecto, por favor, trata de seguir las pautas para publicar tus aportaciones. Esto es con el fin de preservar la integridad del repositorio y evitar fallos en el sitio desplegado. La construcción de Jupyter Book está completamente de acuerdo con lo indicado en el [sitio oficial](https://jupyterbook.org/en/stable/intro.html). En términos generales, para publicar los cambios en Jupyter Book se sigue la siguiente metodología:
