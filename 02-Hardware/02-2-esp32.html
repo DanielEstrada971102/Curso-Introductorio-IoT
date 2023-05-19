@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Sensores &#8212; Curso Introductorio a IoT</title>
+    <title>ESP32 &#8212; Curso Introductorio a IoT</title>
   
   
   
@@ -19,55 +19,55 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '02-1-sensores';</script>
-    <link rel="shortcut icon" href="_static/page-icon-2.png"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Señales" href="02-2-senales.html" />
-    <link rel="prev" title="Dispositivos y Hardware" href="02-hardware-dispositivos-adquisicion.html" />
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02-Hardware/02-2-esp32';</script>
+    <link rel="shortcut icon" href="../_static/page-icon-2.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Raspberry Pi" href="02-3-raspberry.html" />
+    <link rel="prev" title="Arduino" href="02-1-arduino.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -95,7 +95,7 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
-      action="search.html"
+      action="../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -133,7 +133,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="00-bienvenida.html">
+<a class="navbar-brand logo" href="../00-informacion-curso.html">
   
   
   
@@ -143,8 +143,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -153,25 +153,28 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="00-bienvenida.html">
-                    Curso Introductorio a IoT
+                <a class="reference internal" href="../00-informacion-curso.html">
+                    Información del curso
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01-iot-intro.html">Internet de las cosas</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="02-hardware-dispositivos-adquisicion.html">Dispositivos y Hardware</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Sensores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02-2-senales.html">Señales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02-actividades.html">Actividades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-iot-intro.html">Internet de las cosas</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00-hardware-intro.html">Dispositivos y Hardware</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01-sensors-signals.html">Sensores y señales</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="02-acquisition-devices.html">Sistemas de adquisición</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="02-1-arduino.html">Arduino</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">ESP32</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02-3-raspberry.html">Raspberry Pi</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="03-almancenamiento-conectividad.html">Conectividad y almacenamiento</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="03-actividades.html">Actividades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-actividad-1.html">Actividad 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-actividad-2.html">Actividad 2 (opcional)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="04-visualizacion-gestion.html">Aplicaciones y visualizacion</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="04-actividades.html">Actividades</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-Software/00-software-intro.html">Software</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-Software/01-Backend.html">Backend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-Software/02-Frontend.html">Frontend</a></li>
 </ul>
 </li>
 </ul>
@@ -245,7 +248,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT/issues/new?title=Issue%20on%20page%20%2F02-1-sensores.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT/issues/new?title=Issue%20on%20page%20%2F02-Hardware/02-2-esp32.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -275,7 +278,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/02-1-sensores.md" target="_blank"
+      <li><a href="../_sources/02-Hardware/02-2-esp32.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -355,7 +358,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Sensores</h1>
+    <h1>ESP32</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -369,25 +372,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="sensores">
-<h1>Sensores<a class="headerlink" href="#sensores" title="Permalink to this heading">#</a></h1>
-<p>Un sensor es un dispositivo electrónico diseñado para detectar y responder a estímulos físicos o químicos del entorno, convirtiéndolos en señales eléctricas que pueden ser procesadas y utilizadas por sistemas electrónicos como un Arduino. Los sensores desempeñan un papel fundamental en los sistemas de Internet de las Cosas (IoT), ya que permiten recolectar información del mundo físico y enviarla a los dispositivos para su posterior análisis y toma de decisiones.</p>
-<p>Existen varios tipos de sensores, cada uno diseñado para detectar un tipo específico de estímulo que pueden varian tanto como fenomenos físicos y sus combinaciones hay, algunos ejemplos serían:</p>
-<ul class="simple">
-<li><p><strong>Sensores Acústicos:</strong> Se basan en al medición de ondas, espectros y velocidades de onda.</p></li>
-<li><p><strong>Sensores Eléctricos:</strong> Se basan en al medición de corrientes, carga, potenciales, campos eléctricos, permitividad y conductividad.</p></li>
-<li><p><strong>Sensores Magnéticos:</strong> Se basan en al medición de campos magnéticos, flujos magnéticos y permeabilidad.</p></li>
-<li><p><strong>Sensores Térmicos:</strong> Se basan en al medición de temperatura, calor específico y conductividad térmica.</p></li>
-<li><p><strong>Sensores Mecánicos:</strong> Se basan en al medición de posición, aceleración, fuerza, presión, estrés, deformación, masa, densidad, momento, torque, forma, orientación, rugosidad, rigidez, complianza, cristalinidad y estructural.</p></li>
-<li><p><strong>Sensores Ópticos:</strong> Se basan en al medición de intensidad lumínica, índice de refracción, reflectividad, absorción y emisividad.</p></li>
-</ul>
-<p>En el mercado se encuentran disponibles una amplia variedad de sensores para diferentes aplicaciones. Algunos ejemplos comunes incluyen termistores, termopares y sensores de semiconductor para la medición de temperatura; fotodiodos, fototransistores y sensores de luz ambiente para la detección de luz; sensores infrarrojos pasivos, acelerómetros y giroscopios para la detección de movimiento; sensores capacitivos o resistivos para la medición de humedad; sensores piezoeléctricos o capacitivos para la medición de presión; y sensores electroquímicos, infrarrojos o de semiconductor para la detección de gases.</p>
-<p>Estos son solo algunos ejemplos, pero existen muchos otros tipos de sensores para diferentes aplicaciones. Es importante tener en cuenta que las señales generadas por los sensores generalmente son analógicas, es decir, varían en forma continua. Y como se menciono antes se requieren señales digitales para su procesamiento. Por lo tanto, antes de que la señal llegue a la placa de adquisión es común utilizar circuitos de acondicionamiento, lo cual no se abordara acá, y convertidores analógico-digitales (ADC) para transformar las señales analógicas en señales digitales comprensibles por el microcontrolador. Esto ultimo es de vital importancia y se vera en la siguiente sección.</p>
-<div class="highlight-Note notranslate"><div class="highlight"><pre><span></span>Si quieres aprender más sobre sensores y sus aplicaciones, puedes consultar los siguientes recursos:
-
-1. [Introducción a los sensores y transductores](https://www.electronicshub.org/sensors-and-transducers-introduction/)
-2. [Tipos de sensores con sus diagramas de circuito](https://www.elprocus.com/types-of-sensors-with-circuits/)
-</pre></div>
+  <p><img alt="img" src="../_images/ESPHeader.png" /></p>
+<section id="esp32">
+<h1>ESP32<a class="headerlink" href="#esp32" title="Permalink to this heading">#</a></h1>
+<p>El ESP32 es un sistema embebido que combina las mejores características de las tarjetas de desarrollo basadas en microcontroladores, es decir, una amplia gama de periféricos integrados, como GPIO, UART, SPI, I2C, PWM y ADC, con un mayor poder de procesamiento gracias a que integra procesadores de doble núcleo basados en la arquitectura Xtensa LX6. Estos procesadores están especialmente diseñados para aplicaciones de IoT y ofrecen una velocidad de reloj de hasta 240 MHz. El ESP32 también cuenta con una unidad de procesamiento de señal digital (DSP) y una unidad de aceleración de cifrado, lo que le permite realizar tareas de procesamiento intensivas de manera eficiente.</p>
+<div class="admonition-info admonition">
+<p class="admonition-title">Info</p>
+<p>Las especificaciones completas del ESP32 se pueden consultar directamente <a class="reference external" href="https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf">https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf</a>.</p>
+</div>
+<p>Técnicamente, el término “ESP32” se refiere al chip en sí. Sin embargo, como se pudó apreciar, también se utiliza para hacer referencia a las placas de desarrollo ESP32. Estas placas son altamente recomendadas debido a que trabajar directamente con los chips ESP32 no es fácil ni práctico, especialmente cuando se está aprendiendo, probando y creando prototipos. Al utilizar una placa de desarrollo, similar al enfoque de Arduino, se integra toda la circuitería necesaria para programar y utilizar el chip de manera más conveniente.</p>
+<p>Para el desarrollo de aplicaciones, Espressif (sus fabricantes) proporciona un framework con recursos suficientes para trabajar de forma directa con Wi-Fi, Bluetooth, y para la fácil gestión de energía y varias otras características del sistema. Este se conoce como Espressif IDF (IoT Development Framework). Sin embargo, y una de las caracteristicas interezantes de estas tarjetas de desarrollo es que son <strong>compatibles con el framwork de Arduino</strong>, lo que facilita aun más la migración a este tipo de tecnologías. Al contar con un sistema de procesamiento más robusto, estás tarjetas incluso son compatibles con <a class="reference external" href="https://randomnerdtutorials.com/getting-started-micropython-esp32-esp8266/">MicroPython</a>, una reimplementación de Python 3 diseñada específicamente para microcontroladores y sistemas embebidos.</p>
+<p>Para poder usar las tarjetas ESP32 con el IDE de Arduino, se debe hacer la respectiva instalación de las tarjetas y librerias. Para ellos puede seguir alguna de las muchas guías que se encuentran en linea, por ejemplo <a class="reference external" href="https://randomnerdtutorials.com/getting-started-with-esp32/">https://randomnerdtutorials.com/getting-started-with-esp32/</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>En línea se encuentran diferentes recursos para explorar mejor el uso de los dispositivos ESP32. Un punto de partida siempre será la documentación que provee el fabricante <a class="reference external" href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/">link</a></p>
 </div>
 </section>
 
@@ -404,7 +402,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./."
+            path: "./02-Hardware"
         },
         predefinedOutput: true
     }
@@ -420,20 +418,20 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="02-hardware-dispositivos-adquisicion.html"
+       href="02-1-arduino.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Dispositivos y Hardware</p>
+        <p class="prev-next-title">Arduino</p>
       </div>
     </a>
     <a class="right-next"
-       href="02-2-senales.html"
+       href="02-3-raspberry.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Señales</p>
+        <p class="prev-next-title">Raspberry Pi</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -486,8 +484,8 @@ By Daniel Estrada & Fabián Castaño / Universidad de Antioquia - GICM
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
 
   <footer class="bd-footer">
   </footer>

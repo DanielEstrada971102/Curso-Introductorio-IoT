@@ -1,0 +1,513 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Raspberry Pi &#8212; Curso Introductorio a IoT</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02-Hardware/02-3-raspberry';</script>
+    <link rel="shortcut icon" href="../_static/page-icon-2.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Actividad 1" href="03-actividad-1.html" />
+    <link rel="prev" title="ESP32" href="02-2-esp32.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../00-informacion-curso.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00-informacion-curso.html">
+                    Información del curso
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-iot-intro.html">Internet de las cosas</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00-hardware-intro.html">Dispositivos y Hardware</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01-sensors-signals.html">Sensores y señales</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="02-acquisition-devices.html">Sistemas de adquisición</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="02-1-arduino.html">Arduino</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02-2-esp32.html">ESP32</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Raspberry Pi</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03-actividad-1.html">Actividad 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-actividad-2.html">Actividad 2 (opcional)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-Software/00-software-intro.html">Software</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-Software/01-Backend.html">Backend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-Software/02-Frontend.html">Frontend</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT/issues/new?title=Issue%20on%20page%20%2F02-Hardware/02-3-raspberry.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/02-Hardware/02-3-raspberry.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Raspberry Pi</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><img alt="img" src="../_images/RapsberryHeader.png" /></p>
+<section id="raspberry-pi">
+<h1>Raspberry Pi<a class="headerlink" href="#raspberry-pi" title="Permalink to this heading">#</a></h1>
+<p>La Raspberry Pi es una microcomputadora de bajo costo y tamaño reducido. Ofrece un sistema completo en una sola tarjeta que integra un procesador, memoria, puertos de entrada/salida, puertos periféricos de video, USB y conectividad a red. En términos simples, es una computadora con capacidades adicionales de entrada y salida de propósito general (GPIO), lo que la convierte en una herramienta poderosa para aplicaciones de IoT. Aunque la filosofía detrás del diseño de un sistema embebido es la reducción de recursos innecesarios, la Raspberry Pi integra casi todo lo necesario para el sistema electrónico y el backend de dispositivos IoT, lo que la hace atractiva para los desarrolladores.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Las Raspberry Pi, desafortunadamente, no integran convertidores analógico-digitales (ADC) en su diseño. Esto significa que no pueden leer directamente señales analógicas. Sin embargo, es posible utilizar módulos ADC externos que se conectan a través de los pines GPIO para habilitar esta funcionalidad en una Raspberry Pi. Algunos ejemplos de módulos ADC populares compatibles incluyen el <a class="reference external" href="https://www.didacticaselectronicas.com/index.php/semiconductores/conversores-adc-y-dac/adc-raspberry,-ads1115-tarjetas-shield-hat-conversoras-convertidoras-convertidores-conversores-an%C3%A1loga-a-digital-adc-para-raspberry-pi-ads1115-detail">ADS1115</a>, <a class="reference external" href="https://www.sigmaelectronica.net/producto/mcp3008-i-p/">MCP3008</a> y el <a class="reference external" href="https://www.microchip.com/en-us/product/MCP3208">MCP3208</a>.</p>
+</div>
+<p>La Raspberry Pi es conocida por su versatilidad y capacidad para ejecutar sistemas operativos completos. Hay una amplia gama de opciones disponibles, como Raspbian, el sistema operativo oficial basado en Linux Debian; Ubuntu Mate, una versión adaptada de Ubuntu para Raspberry Pi; Ubuntu Core, una versión ligera y segura de Ubuntu diseñada para dispositivos IoT y sistemas embebidos; y Windows 10 IoT Core, una versión de Windows 10 diseñada para dispositivos IoT. Estas opciones permiten a los usuarios elegir según sus preferencias y necesidades específicas.</p>
+<p>La capacidad de interacción con el mundo físico de la tarjeta no se ve limitada por el hardware que integra. Una de las características que hacen atractivo el uso de Raspberry Pi en proyectos de IoT es su capacidad de escalabilidad. Si se utiliza la tarjeta como un servidor principal en un sistema, es posible crear una red de sistemas electrónicos de diferentes naturalezas que intercambien información con la tarjeta como getaway (<a class="reference internal" href="#raspberry-server"><span class="std std-ref">Fig. 13</span></a>).</p>
+<figure class="align-default" id="raspberry-server">
+<a class="reference internal image-reference" href="../_images/server-Raspberry-Pi.png"><img alt="../_images/server-Raspberry-Pi.png" src="../_images/server-Raspberry-Pi.png" style="width: 579.5999999999999px; height: 325.5px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Raspberry Pi como servidor de un sistema IoT. Tomada de <a class="reference external" href="https://randomnerdtutorials.com/getting-started-with-raspberry-pi/">6</a>.</span><a class="headerlink" href="#raspberry-server" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Para trabajar entonces con estas tarjetas es necesio una configuración previa para instalar el SO y configurar la conectividad. Para ellos se puede referir a la documentación oficial <a class="reference external" href="https://www.raspberrypi.com/documentation/computers/getting-started.html">link</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La tarjeta que se puede tener dispinible para este curso será especifiamente las <strong>Raspberry Pi 4 modelo B</strong> de 2 GB de e LPDDR4 RAM y procesador Quad core 64-bit ARM-Cortex A72 con una velocidad de reloj de 1.5GHz. La detalles tennicos completos los puede consultar directamente en el data sheet <a class="reference external" href="https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-datasheet.pdf">link</a>.</p>
+<figure class="align-default" id="raspberry-modelb">
+<a class="reference internal image-reference" href="../_images/Raspberry-pi-4-pinout.png"><img alt="../_images/Raspberry-pi-4-pinout.png" src="../_images/Raspberry-pi-4-pinout.png" style="width: 625.8px; height: 383.59999999999997px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Raspberry Pi 4 Modelo B. Tomada de <a class="reference external" href="https://randomnerdtutorials.com/getting-started-with-raspberry-pi/">6</a>.</span><a class="headerlink" href="#raspberry-modelb" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Como punto de partida se pueden consultar recursos como:</p>
+<ol class="arabic simple">
+<li><p>Getting started with raspberry pi <a class="reference external" href="https://randomnerdtutorials.com/getting-started-with-raspberry-pi/">link</a>.</p></li>
+<li><p>Documentación Raspberry Pi - GPIO in Python <a class="reference external" href="https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio-in-python">link</a></p></li>
+</ol>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./02-Hardware"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02-2-esp32.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ESP32</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03-actividad-1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Actividad 1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Daniel Estrada & Fabián Castaño / Universidad de Antioquia - GICM
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
