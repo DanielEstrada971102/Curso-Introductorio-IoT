@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/_myfile.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -482,11 +483,6 @@ document.write(`
 <h3><a class="toc-backref" href="#id5" role="doc-backlink">Resolución</a><a class="headerlink" href="#resolucion" title="Permalink to this heading">#</a></h3>
 <p>La resolución de un ADC hace referencia a la mínima escala de voltaje que es capaz de identificar el cuantificador. Claramente esto dependerá entonces de los voltajes de referencia y de la cantidad de bits que contiene el conversor (cuantos niveles hay disponibles). Si se toma un caso particular como el del Arduino, que usualmente cuenta con un ADC de  n=10 bits y unos voltajes de referencia de 0 - 5 V, se puede estimar la resolución del ADC como:</p>
 <p>$$ R = \frac{\Delta V}{2^n} = \frac{5 V}{2^{10}} = 4.8 mV.$$</p>
-<div class="admonition-info admonition">
-<p class="admonition-title">info</p>
-<p>Acá se deja un link con un código que simula el muestre de una señal.
-<a class="reference external" href="https://colab.research.google.com/drive/1hiGdkQvX7JDZTz59b5MeMpeyOZgs5sOa?usp=sharing">https://colab.research.google.com/drive/1hiGdkQvX7JDZTz59b5MeMpeyOZgs5sOa?usp=sharing</a></p>
-</div>
 </section>
 </section>
 <section id="ejemplo-sensor-lm35-temperatura">
