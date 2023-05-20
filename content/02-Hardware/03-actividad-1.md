@@ -142,6 +142,10 @@ El hecho de optar por usar ESP32 en lugar de arduino no represena una mejor alte
 ### ESP32 + MQTT
 Para esta implementación se deben usar un par de librerias extra para establecee una conexión WiFi y conectarse al servidor MQTT especificado. La conexión con la tarjeta es la misma que en (({ref}`Fig. 5 <esp32-dht22>`)) y el código quedaría:
 
+```{note}
+Una sección con una descrición del protocolo MQTT será añadida proximamente, por ahora, si desea información sobre esto puede referirse a [link](https://www.twilio.com/blog/what-is-mqtt)
+```
+
 ```{code-block} arduino
 /*
 Para ver los datos:
