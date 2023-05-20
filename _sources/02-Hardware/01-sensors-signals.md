@@ -89,11 +89,6 @@ La resolución de un ADC hace referencia a la mínima escala de voltaje que es c
 
 $$ R = \frac{\Delta V}{2^n} = \frac{5 V}{2^{10}} = 4.8 mV.$$
 
-```{admonition} info
-Acá se deja un link con un código que simula el muestre de una señal.
-[https://colab.research.google.com/drive/1hiGdkQvX7JDZTz59b5MeMpeyOZgs5sOa?usp=sharing](https://colab.research.google.com/drive/1hiGdkQvX7JDZTz59b5MeMpeyOZgs5sOa?usp=sharing)
-```
-
 ## Ejemplo: SENSOR LM35 - TEMPERATURA
 Este ejemplo ilustra la importancia del acondicionamiento de una señal para aprovechar al máximo las características del sistema de adquisición.
 ```{figure} ../img/lm35.png
