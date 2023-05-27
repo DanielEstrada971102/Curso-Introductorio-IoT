@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/page-icon-2.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Frontend" href="02-Frontend.html" />
+    <link rel="next" title="Persistencia de la información" href="01-1-databases.html" />
     <link rel="prev" title="Software" href="00-software-intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -169,12 +169,19 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="../02-Hardware/02-3-raspberry.html">Raspberry Pi</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../02-Hardware/03-actividad-1.html">Actividad 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-Hardware/04-actividad-2.html">Actividad 2 (opcional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Hardware/05-advanced-arduino.html">Arduino - características avanzadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Hardware/07-data-transmission.html">Transmisión de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Hardware/03-activity-1.html">Actividad 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Hardware/04-activity-2.html">Actividad 2 (opcional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Hardware/06-activity-3.html">Actividad 3</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="00-software-intro.html">Software</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Backend</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Backend</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="01-1-databases.html">Persistencia de la información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01-2-activity-4.html">Actividad 4</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="02-Frontend.html">Frontend</a></li>
 </ul>
 </li>
@@ -375,7 +382,10 @@ document.write(`
                   
   <section id="backend">
 <h1>Backend<a class="headerlink" href="#backend" title="Permalink to this heading">#</a></h1>
-<p><img alt="images" src="../_images/pagina-en-construccion.png" /></p>
+<p>En el Internet de las Cosas (IoT), el Backend desempeña un papel fundamental al proporcionar el soporte y las funcionalidades necesarias para la infraestructura y la lógica detrás de los dispositivos conectados. Su función principal es gestionar, procesar y almacenar los datos generados por los dispositivos IoT, además de facilitar la comunicación e interacción entre los dispositivos y las aplicaciones. El Backend actúa como el “cerebro” de la infraestructura, permitiendo la captura, análisis y gestión eficiente de los datos provenientes de los dispositivos conectados. Además, proporciona una interfaz para el intercambio bidireccional de información entre los dispositivos y las aplicaciones, lo que permite el control, la monitorización y la configuración remota de los dispositivos IoT.</p>
+<p>Como se mencionó antes, para esta etapa se pueden emplear tecnologías como Python, JavaScript o PHP. Se pueden integrar servicios de plataformas en la nube como AWS IoT, Google Cloud IoT o Microsoft Azure IoT, que ofrecen almacenamiento, procesamiento y análisis de datos. Y se emplean conexiones a bases de datos usando MongoDB. El despliege de las APIS web se hará principalmente con FastAPI. En cuanto a los protocolos, se explorarán HTTP o Web server y WebSockets para la comunicación con los servidores, además de una comunicación serial sencilla para extraer los datos del Arduino.</p>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -416,11 +426,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="02-Frontend.html"
+       href="01-1-databases.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Frontend</p>
+        <p class="prev-next-title">Persistencia de la información</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

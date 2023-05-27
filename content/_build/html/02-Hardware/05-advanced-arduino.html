@@ -1,0 +1,838 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Arduino - características avanzadas &#8212; Curso Introductorio a IoT</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/_myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02-Hardware/05-advanced-arduino';</script>
+    <link rel="shortcut icon" href="../_static/page-icon-2.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Transmisión de datos" href="07-data-transmission.html" />
+    <link rel="prev" title="Raspberry Pi" href="02-3-raspberry.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../00-informacion-curso.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00-informacion-curso.html">
+                    Información del curso
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-iot-intro.html">Internet de las cosas</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00-hardware-intro.html">Dispositivos y Hardware</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01-sensors-signals.html">Sensores y señales</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="02-acquisition-devices.html">Sistemas de adquisición</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="02-1-arduino.html">Arduino</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02-2-esp32.html">ESP32</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02-3-raspberry.html">Raspberry Pi</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Arduino - características avanzadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-data-transmission.html">Transmisión de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-activity-1.html">Actividad 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-activity-2.html">Actividad 2 (opcional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-activity-3.html">Actividad 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-Software/00-software-intro.html">Software</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-Software/01-Backend.html">Backend</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-Software/01-1-databases.html">Persistencia de la información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-Software/01-2-activity-4.html">Actividad 4</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-Software/02-Frontend.html">Frontend</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT/issues/new?title=Issue%20on%20page%20%2F02-Hardware/05-advanced-arduino.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/02-Hardware/05-advanced-arduino.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Arduino - características avanzadas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-de-los-pines-con-registros">Control de los pines con registros</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-blinking-led">Ejemplo - Blinking-LED</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interrupciones">Interrupciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#externas">Externas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#programadas-o-de-timer">Programadas o de Timer</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-interrupcion-de-timer-en-modo-overflow">Ejemplo 1: Interrupción de Timer en modo overflow</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2-interrupcion-de-timer-en-modo-compare-match">Ejemplo 2: Interrupción de Timer en modo compare match</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-3-libreria-timerone">Ejemplo 3: Libreria TimerOne</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="arduino-caracteristicas-avanzadas">
+<h1><a class="toc-backref" href="#id5" role="doc-backlink">Arduino - características avanzadas</a><a class="headerlink" href="#arduino-caracteristicas-avanzadas" title="Permalink to this heading">#</a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#arduino-caracteristicas-avanzadas" id="id5">Arduino - características avanzadas</a></p>
+<ul>
+<li><p><a class="reference internal" href="#control-de-los-pines-con-registros" id="id6">Control de los pines con registros</a></p>
+<ul>
+<li><p><a class="reference internal" href="#ejemplo-blinking-led" id="id7">Ejemplo - Blinking-LED</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#interrupciones" id="id8">Interrupciones</a></p>
+<ul>
+<li><p><a class="reference internal" href="#externas" id="id9">Externas</a></p></li>
+<li><p><a class="reference internal" href="#programadas-o-de-timer" id="id10">Programadas o de Timer</a></p>
+<ul>
+<li><p><a class="reference internal" href="#ejemplo-1-interrupcion-de-timer-en-modo-overflow" id="id11">Ejemplo 1: Interrupción de Timer en modo overflow</a></p></li>
+<li><p><a class="reference internal" href="#ejemplo-2-interrupcion-de-timer-en-modo-compare-match" id="id12">Ejemplo 2: Interrupción de Timer en modo compare match</a></p></li>
+<li><p><a class="reference internal" href="#ejemplo-3-libreria-timerone" id="id13">Ejemplo 3: Libreria TimerOne</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>Para el desarrollo de dispositivos IoT, suele ser necesario ahondar un poco más en las características avanzadas, o de <strong>bajo nivel</strong>, de las tarjetas de desarrollo como Arduino. Esto, permite un mayor control y optimización de los dispositivos conectados. La habilidad de controlar directamente registros, Timers e interrupciones es especialmente importante, ya que permite aprovechar al máximo el potencial de los dispositivos. El control directo de registros, por ejemplo, permite una comunicación más eficiente y precisa con los sensores y actuadores utilizados. Por su parte, los Timers y las interrupciones son esenciales para programar tareas y eventos en función del tiempo, lo que resulta especialmente útil en aplicaciones en tiempo real. Por lo tanto, está sección ilustrara algunas concepciones básicas al respecto para que tengas más herramientas a la hora de diseñar sus dispositivos IoT. <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<section id="control-de-los-pines-con-registros">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Control de los pines con registros</a><a class="headerlink" href="#control-de-los-pines-con-registros" title="Permalink to this heading">#</a></h2>
+<p>Aunque Arduino ofrece funciones sencillas para controlar los pines y otras características, en algunas ocasiones es necesario tener un mayor control y precisión sobre las operaciones que se realizan. En estos casos, la manipulación directa de los registros es una técnica muy útil. Al acceder directamente a los registros de entrada y salida (I/O) del microcontrolador, se pueden manipular los estados de los pines a nivel de bits y lograr tiempos de ejecución más rápidos, evitando operaciones innecesarias al invocar funciones preestablecidas. Esto es especialmente útil en aplicaciones que requieren ciclos de procesamiento rápidos, como la generación de señales de alta frecuencia, el control de actuadores o la comunicación con periféricos complejos.</p>
+<p>Para visualizar esta problemática, imagine que se quiere generar un pulso a la máxima velocidad que permita el microcontrolador. En un principio, esto implica simplemente evitar el uso de <code class="docutils literal notranslate"><span class="pre">delay()</span></code> en el control del tamaño del pulso. Entonces, el código queda tan simple como:</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">(){</span>
+<span class="w">    </span><span class="nf">pinMode</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span><span class="w"> </span><span class="c1">// Configurar el pin 9 como salida</span>
+<span class="p">}</span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">(){</span>
+<span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span><span class="w"> </span><span class="c1">// Poner el estado del pin en HIGH</span>
+<span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span><span class="w">  </span><span class="c1">// Poner el estado del pin en LOW</span>
+<span class="w">    </span><span class="nf">delay</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w">              </span><span class="c1">// Solo para separar cada pulso</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Lo que se esperaría de este programa es que genere un pulso con un ancho en el orden de los ~70 ns, que corresponde a una frecuencia de procesamiento de 16 MHz. Sin embargo, una inspección rápida de la señal con un osciloscopio permite evidenciar un pulso de aproximadamente 4 us (ver <a class="reference internal" href="#signalcomparation"><span class="std std-ref">Fig.15</span></a>). Esto ocurre porque, como no debería ser sorpresa para usted, en la ejecución de la función <code class="docutils literal notranslate"><span class="pre">digitalWrite</span></code> se ejecutan más instrucciones internamente, lo que representa un gasto en tiempo de cómputo. Manipular directamente los registros de entrada y salida, en lugar de las funciones de manipulación de pines, ataca esta problemática. Para ello, es necesario entender qué registros hay y cómo se manipulan.</p>
+<figure class="align-default" id="signalcomparation">
+<a class="reference internal image-reference" href="../_images/singalcomparation.png"><img alt="../_images/singalcomparation.png" src="../_images/singalcomparation.png" style="width: 598.0px; height: 301.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Izquierda: Pulso generado con digitalWrite; Derecha: Pulso generado con los registros.</span><a class="headerlink" href="#signalcomparation" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Dependiendo de la placa de desarrollo que se esté usando, se tendrá un número diferente de puertos (pines). En el caso del Arduino Mega2560, se tienen un total de 86 pines disponibles para entrada/salida. Estos pines están distribuidos en diferentes puertos del microcontrolador ATmega2560, que se agrupan de a 8 pines (Puerto A, B, …, L, ver el <a class="reference external" href="https://docs.arduino.cc/static/2de2c8ff00fc05065634e3823a9266c4/A000067-pinout.png">diagrama de pines</a> de la placa y el <a class="reference external" href="https://pdf1.alldatasheet.com/datasheet-pdf/view/107092/ATMEL/ATMEGA2560.html">datasheet</a> del microcontrolador). Cada uno de estos puertos se asocia a un conjunto de registros específicos en el microcontrolador y se utilizan para configurar y controlar los pines correspondientes. Por ejemplo, para el Puerto# (# puede ser cualquiera de las letras que enumeran los puertos), los registros asociados son DDR# (registro de dirección de datos), que controla si el pin se usa como entrada o salida; PORT# (registro de salida), que permite cambiar el estado del pin; y PIN# (registro de entrada), que almacena el estado actual de cada pin, por lo tanto, leer este pin equivale a lo que haría digitalRead(). Veamos esto de forma más clara con un ejemplo:</p>
+<section id="ejemplo-blinking-led">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Ejemplo - Blinking-LED</a><a class="headerlink" href="#ejemplo-blinking-led" title="Permalink to this heading">#</a></h3>
+<p>Realizaremos el clásico ejemplo de hacer titilar el LED del pin 13 integrado en la placa, pero usando los registros. Hay que tener en cuenta que el pin 13 se encuentra en el puerto B del microcontrolador en el bit 7 (MSB), ver (<a class="reference internal" href="#pinregcontrol"><span class="std std-ref">Fig. 16</span></a>).</p>
+<figure class="align-default" id="pinregcontrol">
+<a class="reference internal image-reference" href="../_images/pinRegControl.png"><img alt="../_images/pinRegControl.png" src="../_images/pinRegControl.png" style="width: 657.6px; height: 367.8px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Ilustración de la manipulación de registros para el pin 13.</span><a class="headerlink" href="#pinregcontrol" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>El código sería simplemente:</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">  </span><span class="n">DDRB</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">B10000000</span><span class="p">;</span><span class="w">  </span><span class="c1">// Se configura el pin 13 como OUTPUT</span>
+<span class="p">}</span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="n">PORTB</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">B10000000</span><span class="p">;</span><span class="w">         </span><span class="c1">// Se pone el estado del pin 13 en HIGH</span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="w">  </span><span class="n">PORTB</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">!</span><span class="n">B10000000</span><span class="p">;</span><span class="w">        </span><span class="c1">//Se coloca el estado del pin 13 en LOW (Se usa ! para invertir el byte)</span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note que la manipulación de los bits en los registros va de la mano con las operaciones booleanas. Esto se realiza para evitar afectar el estado de los demás bits al hacer asignaciones en un bit específico.</p>
+</div>
+</section>
+</section>
+<section id="interrupciones">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Interrupciones</a><a class="headerlink" href="#interrupciones" title="Permalink to this heading">#</a></h2>
+<p>Las interrupciones, básicamente, se tratan de señales que ocasiona una <strong>suspensión temporal de la ejecución de un proceso</strong>. Durante dicha suspensión, se ejecuta una subrutina de servicio de interrupción (ISR - Interruption Service Rutine) predefinida. Las interrupciones son una poderosa herramienta que permiten a los desarrolladores responder de manera rápida a eventos externos mientras se está ejecutando el programa principal. Con Arduino se dispone de dos tipos de interrupciones: las programadas o de <em>Timer</em> y las externas o de hardware.</p>
+<section id="externas">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Externas</a><a class="headerlink" href="#externas" title="Permalink to this heading">#</a></h3>
+<p>Las interrupciones externas se activan cuando se detecta un cambio en el estado de un pin específico (depende de cada placa), ya sea un flanco ascendente (de bajo a alto) o descendente (de alto a bajo). Estas interrupciones son útiles cuando se necesita detectar eventos rápidos, como pulsaciones de botones o señales directas de un sensor.
+Para usar las interrupciones, la plataforma de Arduino nos provee de funciones como:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">attachInterrupt(#interruptPin,</span> <span class="pre">ISR,</span> <span class="pre">mode)</span></code> : configura el pin especifico<a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> como puerto de interrupción. La ISR es la fusión que se quiere asociar a dicha interrupción. Y el modo puede escogerse entre “LOW”, “CHANGE”, “RISING” y “FALLING”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">digitalPinToInterrupt(#pin)</span></code>: esta función traduce el número del pin de la placa en su respectivo número de interrupción. Por ejemplo, el pin numero de 2 de la tarjeta tiene asignada la interrupción numero 1 y el pin numero 19 la interrupción número 4. Usar este mapeo es indispensable a la hora de invocar las demás funciones y dependerá de cada placa.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dattachInterrupt(#interruptPin)</span></code>: como su nombre lo indica, este método anula la configuración que se haya hecho.</p></li>
+</ul>
+<p>Para ilustrar, Suponga que tiene un proyecto en el que al detectar pulsaciones de un botón se realice una acción. Se puede entonces utilizar una interrupción externa para detectar el cambio de estado del pin conectado al botón.</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">buttonPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">  </span><span class="c1">// Pin digital utilizado para el botón</span>
+<span class="kr">volatile</span><span class="w"> </span><span class="kr">bool</span><span class="w"> </span><span class="n">buttonPressed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">false</span><span class="p">;</span><span class="w">  </span><span class="c1">// Variable volátil que indica si el botón ha sido presionado</span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">buttonPin</span><span class="p">,</span><span class="w"> </span><span class="kr">INPUT_PULLUP</span><span class="p">);</span><span class="w">  </span><span class="c1">// Configuramos el pin del botón como entrada con resistencia de pull-up</span>
+<span class="w">  </span><span class="nf">attachInterrupt</span><span class="p">(</span><span class="n">digitalPinToInterrupt</span><span class="p">(</span><span class="n">buttonPin</span><span class="p">),</span><span class="w"> </span><span class="n">buttonInterrupt</span><span class="p">,</span><span class="w"> </span><span class="n">CHANGE</span><span class="p">);</span><span class="w">  </span><span class="c1">// Asignamos la interrupción al pin del botón</span>
+<span class="p">}</span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buttonPressed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Realizamos la acción deseada cuando se presiona el botón</span>
+<span class="w">    </span><span class="c1">// Puede ser, por ejemplo, encender un LED o enviar un mensaje por serial</span>
+<span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;¡Boton presionado!&quot;</span><span class="p">);</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">buttonPressed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">false</span><span class="p">;</span><span class="w">  </span><span class="c1">// Reiniciamos la variable para detectar nuevas pulsaciones</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// Resto del código del programa principal</span>
+<span class="p">}</span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nf">buttonInterrupt</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Esta función se ejecutará cuando se active la interrupción del botón</span>
+<span class="w">  </span><span class="n">buttonPressed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// Indicamos que el botón ha sido presionado</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p>Note que la variable <code class="docutils literal notranslate"><span class="pre">buttonPressed</span></code> se declaro como <code class="docutils literal notranslate"><span class="pre">volatile</span></code>, esto es necesario cuando se utiliza una variable compartida entre el código principal y una ISR. Esto le indica al compilador que la variable puede cambiar de manera impredecible y que su valor puede ser alterado por eventos externos, como una interrupción. De esta forma se evita que el compilador realice optimizaciones de caché o registros que podrían introducir comportamientos inesperados en la lógica de programación.</p></li>
+<li><p>Es recomendable que las ISR sean <strong>cortas y eficientes</strong>, realizando solo las acciones necesarias para atender la interrupción específica. Por lo general, esto implica realizar tareas esenciales, como leer o escribir registros, cambiar estados o realizar cálculos rápidos. Esto porque se ejecutan de forma asincrónica, interrumpiendo el flujo normal del programa principal, y si es demasiado larga y lleva mucho tiempo en ejecutarse, puede causar retrasos significativos en el programa principal, lo que afectaría la capacidad de respuesta del sistema en general.</p></li>
+</ul>
+</div>
+</section>
+<section id="programadas-o-de-timer">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Programadas o de Timer</a><a class="headerlink" href="#programadas-o-de-timer" title="Permalink to this heading">#</a></h3>
+<p>Los microncontroladores de arduino cuantan con una serie de temporizadores (Timers) internos basados en el cristal oscilador de 16 MHz (o un oscilador interno de 8 MHz dependiendo del bootloader usado). Estos pueden ser configurados para generar una señal de interrupción que se envía cuando se alcanza un valor determinado. Lo cual se puede utilizar para ejecutar código en intervalos de tiempo específicos, incluso si Arduino está ocupado realizando otras tareas. Para utilizar las interrupciones de Timer es necesario configurar y activar el temporizador específico del microcontrolador. El proceso generalmente implica <strong>Configurar el Timer</strong> estableciendo parámetros como la frecuencia de temporización y el modo de funcionamiento, esto se hace mediante la configuración de <strong>registros</strong> específicos del microcontrolador. Una vez configurado se crea una función ISR que se asocie con el Timer configurado.</p>
+<p>Se prodría pensar en fijar una interrupción cada 1/16000000 = 62.5 ns, sin embargo, este limite está restringido debido a que cada instrucción de Arduino requiere múltiples pulsos de reloj para ejecutarse (incluyendo al menos 5 pulsos para las interrupciones). La forma real en la cual se establecen las interrupciones es en base a un componente intermedio llamado <strong>preescalar</strong> que actúa como un divisor de frecuencia. El preescalar divide el número de pulsos de reloj en factores específicos (como 8, 64, 256, etc.), lo que resulta en una señal de reloj que es varias veces más lenta. El temporizador realiza su conteo basándose en estos pulsos de reloj del preescalar, lo que permite obtener señales de interrupción a frecuencias personalizadas al configurar adecuadamente el preescalar.</p>
+<div class="admonition-ejemplo-preescalar admonition">
+<p class="admonition-title">Ejemplo - Preescalar</p>
+<p>Para ilustrar el concepto del preescalar en la configuración del Timer, suponga que este se define en un valor de 8. Quiere decir que se tendrá un pulso de reloj 8 veces más lento que el del cristal oscilador, eso significa pasar de un reloj de 62.5 ns a uno de 500 ns. De igual forma, si se escoje un preescalar de 256 se pasaría a tener un pulso de reloj de periodo de 1.6 $\mu$s.</p>
+</div>
+<p>Con base en el pulso del preescalar, el Timer incrementará su contador hasta alcanzar un valor máximo para luego reiniciar la cuenta. El valor máximo depende del Timer utilizado. En el caso del Arduino Mega2560, se cuenta con 2 Timers de 8 bits y 4 de 16 bits, es decir, 2 Timers que pueden contar hasta 255 y 4 Timers que cuentan hasta 1024. Dependiendo del periodo de interrupción que se desee configurar, se debe utilizar uno u otro.</p>
+<p>Existen varios modos de generación de interrupciones, siendo los más comunes el modo “<em>compare match</em>” y el modo “<em>overflow</em>”. En el modo “<em>compare match</em>”, la interrupción se genera cuando el contador alcanza un valor predefinido en un registro. En el segundo modo, las interrupciones ocurren cada vez que el contador se reinicia. También existe un tercer modo llamado “input capture interrupt”, pero se puede consultar más información sobre este en la documentación oficial.</p>
+<p>La configuración del modo y el preescalar se realiza a través de los registros de control del Timer (TCCR#A y TCCR#B, donde “#” se refiere al número del Timer utilizado). El valor del contador del Timer se puede acceder a través del registro TCNT#. Por último, el registro TIMSK# permite habilitar los diferentes modos del Timer. Para obtener más detalles sobre los registros del Timer, se puede consultar el <a class="reference external" href="https://pdf1.alldatasheet.com/datasheet-pdf/view/107092/ATMEL/ATMEGA2560.html">datasheet</a> del microcontrolador ATmega2560. De allí se extrajeron las siguientes capturas :</p>
+<figure class="align-default" id="tccregisters">
+<a class="reference internal image-reference" href="../_images/TCCRegisters.png"><img alt="../_images/TCCRegisters.png" src="../_images/TCCRegisters.png" style="width: 770.4000000000001px; height: 153.20000000000002px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Arduino Mega 2560 TCCR1 A y B. Tomado del datasheet.</span><a class="headerlink" href="#tccregisters" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="tcncregisters">
+<a class="reference internal image-reference" href="../_images/TCNCRegister.png"><img alt="../_images/TCNCRegister.png" src="../_images/TCNCRegister.png" style="width: 332.8px; height: 48.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Arduino Mega 2560 TCNC1 L y H para completar los 16 bits. Tomado del datasheet.</span><a class="headerlink" href="#tcncregisters" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="comparatorregisters">
+<a class="reference internal image-reference" href="../_images/ComparatorRegisters.png"><img alt="../_images/ComparatorRegisters.png" src="../_images/ComparatorRegisters.png" style="width: 435.6px; height: 242.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Arduino Mega 2560 TIMSK1, OCR1A L y H, OCR1B L y H, OCR1C L y H. Tomado del datasheet.</span><a class="headerlink" href="#comparatorregisters" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Para dar claridad a lo expuesto, a continuación se muestra cómo se ve esto en la práctica (Usando el Timer0 que es de 8-bits).</p>
+<section id="ejemplo-1-interrupcion-de-timer-en-modo-overflow">
+<h4><a class="toc-backref" href="#id11" role="doc-backlink">Ejemplo 1: Interrupción de Timer en modo overflow</a><a class="headerlink" href="#ejemplo-1-interrupcion-de-timer-en-modo-overflow" title="Permalink to this heading">#</a></h4>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * Este código tiene como objetivo controlar el estado de un LED en intervalos regulares utilizando interrupciones de timer en Arduino.</span>
+
+<span class="cm"> * Configuración del Timer:</span>
+<span class="cm"> * - Se utiliza el Timer 1 (de 16 bits).</span>
+<span class="cm"> * - Se establece un preescalar de 1024 (CS12 y CS10 en 1) para el Timer 1.</span>
+<span class="cm"> * - Se habilita la interrupción por overflow del Timer 1.</span>
+<span class="cm"> </span>
+<span class="cm"> * Con esta información:</span>
+<span class="cm"> * --&gt; Velocidad del Timer 1: 16Mhz/1024 = 15625 Hz</span>
+<span class="cm"> * --&gt; Tiempo de pulso: 64 us</span>
+<span class="cm"> * --&gt; Tiempo de interrupción: 64 us * 2^16 ~ 4.194 s  </span>
+<span class="cm"> */</span>
+<span class="kr">bool</span><span class="w"> </span><span class="n">CHANGE_LED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// Bandera para cambiar el estado de un LED;</span>
+<span class="kr">int</span><span class="w"> </span><span class="n">LED_STATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">       </span><span class="c1">// Estado del LED</span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="n">cli</span><span class="p">();</span><span class="w">                </span><span class="c1">// Se deshabilitan las interrupciones </span>
+<span class="w">  </span><span class="n">TCNT1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">            </span><span class="c1">// Se reinicia el contador del Timer 1.</span>
+<span class="w">  </span><span class="n">TCCR1A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">           </span><span class="c1">// Se reinicia todo el registro TCCR1A</span>
+<span class="w">  </span><span class="n">TCCR1B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">           </span><span class="c1">// Se reinicia todo el registro TCCR1A</span>
+<span class="w">  </span><span class="n">TCCR1B</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">B00000101</span><span class="p">;</span><span class="w">  </span><span class="c1">// Se pone CS12 y CS10 en 1, es decir un preescalar de 1024</span>
+<span class="w">  </span><span class="n">TIMSK1</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">B00000001</span><span class="p">;</span><span class="w">  </span><span class="c1">// Se habilita la interrupción por overflow</span>
+<span class="w">  </span><span class="n">sei</span><span class="p">();</span><span class="w">                </span><span class="c1">// Se habilitan las interrupciones </span>
+<span class="p">}</span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CHANGE_LED</span><span class="p">){</span>
+<span class="w">    </span><span class="n">LED_STATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">LED_STATE</span><span class="p">;</span>
+<span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="n">LED_STATE</span><span class="p">);</span>
+<span class="w">    </span><span class="n">CHANGE_LED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">false</span><span class="p">;</span><span class="w"> </span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Con la configuracion hecha, esta ISR será ejecutada cada 4.194 s.</span>
+<span class="n">ISR</span><span class="p">(</span><span class="n">TIMER1_OVF_vect</span><span class="p">){</span>
+<span class="w">  </span><span class="n">CHANGE_LED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La asignación de la ISR se hace a través del vector de interrupción. Para cada modo y comparador hay un vector. En el ejemplo anterior se utiliza el vector <code class="docutils literal notranslate"><span class="pre">TIMER1_OVF_vect</span></code> que corresponde al modo de <em>overflow</em>. Si se ustuviera usando el modo <em>compare match</em> habría que usar <code class="docutils literal notranslate"><span class="pre">TIMER1_COMP#_vect</span></code> donde # corresponde a si se está usando el comparador A, B, o C, ver registros de TIMSK1 en (<a class="reference internal" href="#comparatorregisters"><span class="std std-ref">Fig. 18</span></a>).</p>
+</div>
+</section>
+<section id="ejemplo-2-interrupcion-de-timer-en-modo-compare-match">
+<h4><a class="toc-backref" href="#id12" role="doc-backlink">Ejemplo 2: Interrupción de Timer en modo compare match</a><a class="headerlink" href="#ejemplo-2-interrupcion-de-timer-en-modo-compare-match" title="Permalink to this heading">#</a></h4>
+<p>Si se quiere mayor control sobre el tiempo se usa el modo de <em>compare match</em>.</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * Este código tiene como objetivo controlar el estado de un LED en intervalos regulares utilizando interrupciones de timer en Arduino.</span>
+
+<span class="cm"> * Configuración del Timer:</span>
+<span class="cm"> * - Se utiliza el Timer 1 (de 16 bits).</span>
+<span class="cm"> * - Se establece un preescalar de 1024 (CS12 y CS10 en 1) para el Timer 1.</span>
+<span class="cm"> * - Se habilita la interrupción por compare match del Timer 1.</span>
+<span class="cm"> </span>
+<span class="cm"> * Con esta información si se quiere configurar una interrupción de 500 ms:</span>
+<span class="cm"> * --&gt; Velocidad del Timer 1: 16Mhz/1024 = 15625 Hz</span>
+<span class="cm"> * --&gt; Tiempo de pulso: 64 us</span>
+<span class="cm"> * --&gt; El contador debe llegar a: 500 ms / 64 us = 7813 (Este es el valor a colocar en uno de los registros OCR1#)</span>
+<span class="cm"> */</span>
+<span class="kr">bool</span><span class="w"> </span><span class="n">CHANGE_LED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// Bandera para cambiar el estado de un LED;</span>
+<span class="kr">int</span><span class="w"> </span><span class="n">LED_STATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">       </span><span class="c1">// Estado del LED</span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="n">cli</span><span class="p">();</span><span class="w">                </span><span class="c1">// Se deshabilitan las interrupciones </span>
+<span class="w">  </span><span class="n">TCNT1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">          </span><span class="c1">// Se reinicia el contador del Timer 1.</span>
+<span class="w">  </span><span class="n">TCCR1A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">           </span><span class="c1">// Se reinicia todo el registro TCCR1A</span>
+<span class="w">  </span><span class="n">TCCR1B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">           </span><span class="c1">// Se reinicia todo el registro TCCR1A</span>
+<span class="w">  </span><span class="n">TCCR1B</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">WGM12</span><span class="p">);</span><span class="w">  </span><span class="c1">// Se establece el modo CTC (clear timer on compare match)</span>
+<span class="w">  </span><span class="n">TCCR1B</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">B00000101</span><span class="p">;</span><span class="w">  </span><span class="c1">// Se pone CS12 y CS10 en 1, es decir un preescalar de 1024</span>
+<span class="w">  </span><span class="n">TIMSK1</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">B00000010</span><span class="p">;</span><span class="w">  </span><span class="c1">// Se habilita la interrupción por compare mathc</span>
+<span class="w">  </span><span class="n">OCR1A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7813</span><span class="p">;</span><span class="w">         </span><span class="c1">// Se define el registo de comparacion A en este valor</span>
+<span class="w">  </span><span class="n">sei</span><span class="p">();</span><span class="w">                </span><span class="c1">// Se habilitan las interrupciones </span>
+<span class="p">}</span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CHANGE_LED</span><span class="p">){</span>
+<span class="w">    </span><span class="n">LED_STATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">LED_STATE</span><span class="p">;</span>
+<span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="n">LED_STATE</span><span class="p">);</span>
+<span class="w">    </span><span class="n">CHANGE_LED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">false</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Con la configuracion hecha, esta ISR será ejecutada cada 32.8us aproximadamete.</span>
+<span class="n">ISR</span><span class="p">(</span><span class="n">TIMER1_COMPA_vect</span><span class="p">){</span>
+<span class="w">  </span><span class="n">CHANGE_LED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-3-libreria-timerone">
+<h4><a class="toc-backref" href="#id13" role="doc-backlink">Ejemplo 3: Libreria TimerOne</a><a class="headerlink" href="#ejemplo-3-libreria-timerone" title="Permalink to this heading">#</a></h4>
+<p>Si la aplicación no amerita complicarse demasiado con la manipulación directa de los registros, se pueden recurrir a librerias que ayude a controlar las interrupciones por Timer. Una opción es <a class="reference external" href="https://www.arduino.cc/reference/en/libraries/timerone/">TimerOne</a>. Con unos cuantos metodos permite habilitar una interrupción por Timer con el periodo deseado (min 1 us - max. 8.3 s).</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;TimerOne.h&quot;</span><span class="c1"> </span>
+<span class="c1">// Una instancia de la clase TimerOne es creada automaticamente</span>
+<span class="c1">// que en adelante es accesible a traves del nombre Timer1.</span>
+
+<span class="kr">bool</span><span class="w"> </span><span class="n">CHANGE_LED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// Bandera para cambiar el estado de un LED;</span>
+<span class="kr">int</span><span class="w"> </span><span class="n">LED_STATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">       </span><span class="c1">// Estado del LED</span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Timer1</span><span class="p">.</span><span class="n">initialize</span><span class="p">(</span><span class="mi">1000000</span><span class="p">);</span><span class="w"> </span><span class="c1">// Se inicialize el Timer</span>
+<span class="w">  </span><span class="n">Timer1</span><span class="p">.</span><span class="nf">attachInterrupt</span><span class="p">(</span><span class="n">callback</span><span class="p">);</span><span class="w"> </span><span class="c1">// Se le asigna la ISR</span>
+<span class="p">}</span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CHANGE_LED</span><span class="p">){</span>
+<span class="w">    </span><span class="n">LED_STATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">LED_STATE</span><span class="p">;</span>
+<span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="n">LED_STATE</span><span class="p">);</span>
+<span class="w">    </span><span class="n">CHANGE_LED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">false</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nf">callback</span><span class="p">(){</span>
+<span class="w">  </span><span class="n">CHANGE_LED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Esta libreria no es compatible con todas la tarjetas, más detalles pueden consultarse directamente en el <a class="reference external" href="https://github.com/PaulStoffregen/TimerOne">repositorio</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Los dispositivos IoT suelen requerir el control y monitoreo de varias cosas simultáneamente, lo cual implica diferentes tiempos de muestreo en general. Siguiendo lo mencionado anteriormente, podría parecer sencillo implementar múltiples temporizadores para cada tarea según sea necesario. Sin embargo, una práctica común es utilizar un número reducido de temporizadores y aprovechar sus interrupciones para incrementar el valor de una variable en el código. Cuando esta variable alcanza diferentes umbrales, se activan diferentes banderas. Estas banderas se pueden utilizar en el bloque principal junto con condiciones simples para realizar lecturas y controles de los diversos sensores y actuadores. Una ilustración más clara de este enfoque se presenta en la <a class="reference internal" href="06-activity-3.html"><span class="doc std std-doc">Actividad 3</span></a>.</p>
+</div>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id3" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Mucho del material presentado en esta sección se basa en el curso de “<a class="reference external" href="https://www.youtube.com/watch?v=7mkMIz5Ofho&amp;list=PLb_2Ipj07tdG5WSrmYRyfVM8M3fED2ur-&amp;pp=iAQB">Arduino 101</a>” del canal de YouTube “Electronoobs” .</p>
+</aside>
+<aside class="footnote brackets" id="id4" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Para el Arduino Mega2560, las interrupciones se externas se pueden hacer a través de los pines 2, 3, 18, 19, 20, 21.</p>
+</aside>
+</aside>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./02-Hardware"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02-3-raspberry.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Raspberry Pi</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="07-data-transmission.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Transmisión de datos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-de-los-pines-con-registros">Control de los pines con registros</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-blinking-led">Ejemplo - Blinking-LED</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interrupciones">Interrupciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#externas">Externas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#programadas-o-de-timer">Programadas o de Timer</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-interrupcion-de-timer-en-modo-overflow">Ejemplo 1: Interrupción de Timer en modo overflow</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2-interrupcion-de-timer-en-modo-compare-match">Ejemplo 2: Interrupción de Timer en modo compare match</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-3-libreria-timerone">Ejemplo 3: Libreria TimerOne</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Daniel Estrada & Fabián Castaño / Universidad de Antioquia - GICM
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

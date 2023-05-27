@@ -13,9 +13,16 @@ chapters:
       - file: 02-Hardware/02-1-arduino
       - file: 02-Hardware/02-2-esp32
       - file: 02-Hardware/02-3-raspberry
-    - file: 02-Hardware/03-actividad-1
-    - file: 02-Hardware/04-actividad-2
+    - file: 02-Hardware/05-advanced-arduino
+    - file: 02-Hardware/07-data-transmission
+    - file: 02-Hardware/03-activity-1
+    - file: 02-Hardware/04-activity-2
+    - file: 02-Hardware/06-activity-3
+    
 - file: 03-Software/00-software-intro
   sections:
     - file: 03-Software/01-Backend
+      sections:
+      - file: 03-Software/01-1-databases
+      - file: 03-Software/01-2-activity-4
     - file: 03-Software/02-Frontend
