@@ -12,5 +12,6 @@
 * Simulador de circuitos [WokWi](https://wokwi.com/).
 * Plataforma para las pruebas de protocolos de comunicación web [https://iotudeab4a1-fabioc9675.b4a.run/](https://iotudeab4a1-fabioc9675.b4a.run/)
 
-**Presentaciones***
-* [Clase 1](https://github.com/DanielEstrada971102/Curso-Introductorio-IoT/blob/38835b7ac8175377776b365c4f27e6def4b0f72e/slides/Prensentacion-Clase1.pdf).
+**Presentaciones**
+* [Clase 1](../slides/Prensentacion-Clase1.pdf)
+* [Clase 2](../slides/Prensentacion-Clase2.pdf)
