@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Software &#8212; Curso Introductorio a IoT</title>
+    <title>Persistencia de la información &#8212; Curso Introductorio a IoT</title>
   
   
   
@@ -63,12 +63,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '03-Software/00-software-intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '03-Software/01-1-databases';</script>
     <link rel="shortcut icon" href="../_static/page-icon-2.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Backend" href="01-Backend.html" />
-    <link rel="prev" title="Actividad 3" href="../02-Hardware/06-activity-3.html" />
+    <link rel="next" title="Actividad 4" href="01-2-activity-4.html" />
+    <link rel="prev" title="Backend" href="01-Backend.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,9 +176,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../02-Hardware/06-activity-3.html">Actividad 3</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Software</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="01-Backend.html">Backend</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="01-1-databases.html">Persistencia de la información</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00-software-intro.html">Software</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="01-Backend.html">Backend</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Persistencia de la información</a></li>
 <li class="toctree-l3"><a class="reference internal" href="01-2-activity-4.html">Actividad 4</a></li>
 </ul>
 </li>
@@ -256,7 +256,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT/issues/new?title=Issue%20on%20page%20%2F03-Software/00-software-intro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT/issues/new?title=Issue%20on%20page%20%2F03-Software/01-1-databases.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -286,7 +286,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/03-Software/00-software-intro.md" target="_blank"
+      <li><a href="../_sources/03-Software/01-1-databases.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -355,7 +355,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -366,11 +368,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Software</h1>
+    <h1>Persistencia de la información</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bases-de-datos">Bases de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mongodb">MongoDB</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -380,11 +391,62 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="software">
-<h1>Software<a class="headerlink" href="#software" title="Permalink to this heading">#</a></h1>
-<p><img alt="images" src="../_images/pagina-en-construccion.png" /></p>
-<div class="toctree-wrapper compound">
-</div>
+  <p><img alt="images" src="../_images/mongoLogo.png" /></p>
+<section id="persistencia-de-la-informacion">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">Persistencia de la información</a><a class="headerlink" href="#persistencia-de-la-informacion" title="Permalink to this heading">#</a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#persistencia-de-la-informacion" id="id3">Persistencia de la información</a></p>
+<ul>
+<li><p><a class="reference internal" href="#bases-de-datos" id="id4">Bases de datos</a></p></li>
+<li><p><a class="reference internal" href="#mongodb" id="id5">MongoDB</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>Dentro del backend, una vez los datos son recibidos desde el sistema electrónico, ya sea a través de comunicación serial o de protocolos web, una de las cosas más importantes es garantizar la persistencia de la información, preferiblemente de forma estructurada para facilitar su manipulación. Con este fin, en el diseño de los sistemas IoT es indispensable hacer uso de las bases de datos.</p>
+<section id="bases-de-datos">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Bases de datos</a><a class="headerlink" href="#bases-de-datos" title="Permalink to this heading">#</a></h2>
+<p>Una base de datos es una colección estructurada de información almacenada en un medio digital, como discos duros, servidores o en la nube. Los datos se gestionan a través de un sistema de gestión de bases de datos (Database Management Systems, DBMS) para administrar y controlar la información, con el cual podemos interactuar mediante consultas usando un lenguaje específico como SQL (Structured Query Language). Las consultas permiten realizar acciones en la base de datos, como crear, modificar, almacenar y recuperar datos de manera eficiente.</p>
+<figure class="margin align-right" id="sqlandnosql">
+<a class="reference internal image-reference" href="../_images/sqlAndNoSql.png"><img alt="../_images/sqlAndNoSql.png" src="../_images/sqlAndNoSql.png" style="width: 276.3px; height: 175.95000000000002px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Tipos de bases de datos.</span><a class="headerlink" href="#sqlandnosql" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>En este contexto se pueden distinguir varios tipos de bases de datos (ver <a class="reference internal" href="#sqlandnosql"><span class="std std-ref">Fig 23.</span></a>), que pueden ser SQL o NoSQL<a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. Particularmente, usted seguramente está familiarizado con: Las relacionesles (RDB - <em>relational data base</em>) y las documentales.  Las primeras son las más comunes y consisten en bases de datos donde la información se organiza en tablas diferentes, las cuales pueden tener o no vínculos entre ellas mediante claves primarias y secundarias (o foráneas). En la <a class="reference internal" href="#brelacional"><span class="std std-ref">Fig 24.</span></a> se ilustra esto, se puede observar cómo tres tablas distintas están relacionadas mediante sus claves. Dentro de esta categoría, uno de los gestores más significativos es <strong>MySQL</strong>.</p>
+<figure class="align-default" id="brelacional">
+<a class="reference internal image-reference" href="../_images/brelacional.png"><img alt="../_images/brelacional.png" src="../_images/brelacional.png" style="width: 691.6px; height: 208.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Estructuración de la información en una base de datos relacional.</span><a class="headerlink" href="#brelacional" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Por otro lado, las bases de datos documentales son una de las principales variantes de las bases de datos no relacionales (NoSQL). Se caracterizan por almacenar la información en registros, cada uno de los cuales funciona como una unidad autónoma de información. Como su nombre lo indica, esos registros se almacenan como documentos con información semiestructurada, generalmente utilizando la notación de objetos de JavaScript (JSON). Dentro de esta categoría, un gestor significativo es <strong>MongoDB</strong>. En adelante nos enfocaremos en este último ya que es de código abierto y, general, es fácil de usar.</p>
+</section>
+<section id="mongodb">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">MongoDB</a><a class="headerlink" href="#mongodb" title="Permalink to this heading">#</a></h2>
+<p>MongoDB es un sistema de gestión de bases de datos NoSQL documental de código abierto y altamente flexible. Los datos se almacenan en documentos BSON (Binary JSON), similares a los objetos JSON pero con la capacidad de representar tipos de datos más complejos. Cada documento contiene pares clave-valor, donde las claves son cadenas de texto y los valores pueden ser diversos tipos de datos como números, cadenas, booleanos, arreglos y documentos anidados. Esta flexibilidad permite a los desarrolladores almacenar y consultar datos de manera más natural, adaptándose fácilmente a los cambios en la estructura de los datos sin requerir modificaciones en el esquema de la base de datos.</p>
+<p>En MongoDB, la estructura de la base de datos se basa en colecciones, que son el equivalente a las tablas en las bases de datos relacionales. Cada colección puede contener diferentes documentos, que son el equivalente a los registros en las bases de datos relacionales. Los documentos contienen información estructurada en formato JSON. Esta estructura es visualizada de forma gráfica en la <a class="reference internal" href="#mongoestructura"><span class="std std-ref">Fig. 25</span></a>.</p>
+<figure class="align-default" id="mongoestructura">
+<a class="reference internal image-reference" href="../_images/mongoEstrucura.png"><img alt="../_images/mongoEstrucura.png" src="../_images/mongoEstrucura.png" style="width: 577.2px; height: 272.40000000000003px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Estructuración de la información en la base de datos documental MongoDB.</span><a class="headerlink" href="#mongoestructura" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>MongoDB también proporciona un conjunto completo de funcionalidades para consultas y operaciones avanzadas. Utilizando su lenguaje de consulta y manipulación de datos llamado Aggregation Framework, los desarrolladores pueden realizar consultas complejas, operaciones de agregación, indexar los datos para mejorar la velocidad de las consultas y realizar análisis en tiempo real.</p>
+<p>Para comenzar a trabajar con MongoDB, es importante tener en cuenta que existen dos variantes importantes que se utilizan en diferentes contextos. Por un lado, está <strong>MongoDB <em>Community Edition</em></strong>, que es la versión gratuita y de código abierto de MongoDB. Está diseñada para ser instalada y ejecutada en tu propio entorno, ya sea en tu propio servidor o en la nube. Proporciona todas las características y funcionalidades básicas de MongoDB, lo que te permite almacenar, consultar y manipular datos de forma flexible. MongoDB Community Edition es ideal para aquellos que desean tener un control total sobre su infraestructura y desean personalizar la configuración y el despliegue de su base de datos MongoDB.</p>
+<p>Por otro lado, <strong>MongoDB Atlas</strong> es un servicio de base de datos gestionado y completamente administrado a tráves MongoDB cloud. Es una opción en la nube que te permite desplegar, escalar y administrar fácilmente tus bases de datos MongoDB sin preocuparte por la configuración de la infraestructura subyacente. MongoDB Atlas se encarga de tareas como el aprovisionamiento de servidores, la configuración de la replicación, las copias de seguridad automáticas y la escalabilidad, lo que te permite centrarte en el desarrollo de aplicaciones en lugar de la gestión de la base de datos. Es especialmente útil para aquellos que desean una solución simplificada y sin problemas de administración de bases de datos MongoDB, con características adicionales como el monitoreo integrado y la distribución geográfica de datos.</p>
+<p>Para usar MongoDB Community Edition, simplemente debes realizar la instalación en tu máquina local. Puede referirse a la <a class="reference external" href="https://www.mongodb.com/try/download/community">página oficial</a> para descargarla. Una guía detallada del proceso se puede encontrar en <a class="reference external" href="https://www.youtube.com/watch?v=lWMemPN9t6Q">“MongoDB Curso, Introducción Práctica a NoSQL”</a>. Una vez completada la instalación, puede desplegar un servidor local de MongoDB y realizar operaciones <strong>CRUD</strong> (Crear, Leer, Actualizar, Eliminar). Para nuestro sistema IoT, el uso de MongoDB Atlas proporciona una gestión simplificada, escalabilidad y características avanzadas de seguridad para bases de datos MongoDB.</p>
+<p>Para usar MongoDB Atlas, es necesario crear una cuenta. Una vez registrado, podrás crear un proyecto y desplegar un servidor que aloje la base de datos. Allí podrás crear un usuario y recibirás las credenciales necesarias para poder conectarte y comenzar a realizar operaciones CRUD. Un paso a paso de este proceso se puede encontrar en el video <a class="reference external" href="https://www.youtube.com/watch?v=Imwk0HtEuGY">“MongoDB Atlas, NoSQL en la Nube”</a>. En la <a class="reference internal" href="01-2-activity-4.html"><span class="doc std std-doc">Actividad 4</span></a> podrá ver como utilizarlo de forma práctica.</p>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Se usa el termino SQL y NoSQL para diferencias aquellas que se gestionan usando lenguaje de consulta SQL o otros diferentes como CQL (<em>Contextual Query Language</em>), GQL (<em>Graph Query Language</em>), o JSON (<em>JavaScript Object Notation</em>).</p>
+</aside>
+</aside>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -416,20 +478,20 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../02-Hardware/06-activity-3.html"
+       href="01-Backend.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Actividad 3</p>
+        <p class="prev-next-title">Backend</p>
       </div>
     </a>
     <a class="right-next"
-       href="01-Backend.html"
+       href="01-2-activity-4.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Backend</p>
+        <p class="prev-next-title">Actividad 4</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -439,6 +501,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bases-de-datos">Bases de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mongodb">MongoDB</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

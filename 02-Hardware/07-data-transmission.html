@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Sistemas de adquisición &#8212; Curso Introductorio a IoT</title>
+    <title>Transmisión de datos &#8212; Curso Introductorio a IoT</title>
   
   
   
@@ -63,12 +63,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '02-Hardware/02-acquisition-devices';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02-Hardware/07-data-transmission';</script>
     <link rel="shortcut icon" href="../_static/page-icon-2.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Arduino" href="02-1-arduino.html" />
-    <link rel="prev" title="Sensores y señales" href="01-sensors-signals.html" />
+    <link rel="next" title="Actividad 1" href="03-activity-1.html" />
+    <link rel="prev" title="Arduino - características avanzadas" href="05-advanced-arduino.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -163,14 +163,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../01-iot-intro.html">Internet de las cosas</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="00-hardware-intro.html">Dispositivos y Hardware</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01-sensors-signals.html">Sensores y señales</a></li>
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Sistemas de adquisición</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="02-acquisition-devices.html">Sistemas de adquisición</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="02-1-arduino.html">Arduino</a></li>
 <li class="toctree-l3"><a class="reference internal" href="02-2-esp32.html">ESP32</a></li>
 <li class="toctree-l3"><a class="reference internal" href="02-3-raspberry.html">Raspberry Pi</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="05-advanced-arduino.html">Arduino - características avanzadas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07-data-transmission.html">Transmisión de datos</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Transmisión de datos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03-activity-1.html">Actividad 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04-activity-2.html">Actividad 2 (opcional)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06-activity-3.html">Actividad 3</a></li>
@@ -256,7 +256,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT/issues/new?title=Issue%20on%20page%20%2F02-Hardware/02-acquisition-devices.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT/issues/new?title=Issue%20on%20page%20%2F02-Hardware/07-data-transmission.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -286,7 +286,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/02-Hardware/02-acquisition-devices.md" target="_blank"
+      <li><a href="../_sources/02-Hardware/07-data-transmission.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -368,7 +368,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Sistemas de adquisición</h1>
+    <h1>Transmisión de datos</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -378,12 +378,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microcontroladores">Microcontroladores</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microprocesadores">Microprocesadores</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microcomputadoras">Microcomputadoras</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fpga">FPGA</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programacion">Programación</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#placas-de-desarrollo">Placas de desarrollo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comunicacion-serial-con-arduino">Comunicación serial con Arduino</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocolo-mqtt">Protocolo MQTT</a></li>
 </ul>
             </nav>
         </div>
@@ -395,75 +391,40 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="sistemas-de-adquisicion">
-<h1><a class="toc-backref" href="#id5" role="doc-backlink">Sistemas de adquisición</a><a class="headerlink" href="#sistemas-de-adquisicion" title="Permalink to this heading">#</a></h1>
-<nav class="contents" id="contents">
-<p class="topic-title">Contents</p>
+  <section id="transmision-de-datos">
+<h1>Transmisión de datos<a class="headerlink" href="#transmision-de-datos" title="Permalink to this heading">#</a></h1>
+<p>La transmisión de datos desde los sistemas electrónicos de adquisición, como Arduino, Raspberry Pi y ESP32, hacia la infraestructura subyacente para su posterior procesamiento, almacenamiento o visualización. Existen varias opciones para realizar la transmisión de información, y la elección dependerá de diversos factores como el tipo de proyecto, los requisitos de comunicación, la distancia de transmisión y la disponibilidad de recursos.</p>
+<p>Una de las formas más comunes de transmitir datos es a través de protocolos de comunicación serial ya mencionados, como UART (Universal Asynchronous Receiver-Transmitter) o SPI (Serial Peripheral Interface). Estos, permiten la comunicación punto a punto entre dispositivos y son ampliamente utilizados en aplicaciones de IoT y sistemas embebidos. Otra opción popular es la transmisión de datos a través de protocolos de comunicación inalámbrica, como Wi-Fi o Bluetooth. Raspberry Pi y ESP32 son dispositivos que ofrecen conectividad Wi-Fi y Bluetooth integrada, lo que permite la transmisión de datos de forma inalámbrica hacia otros dispositivos o hacia la nube. Estos protocolos son especialmente útiles cuando se requiere una comunicación remota o cuando la infraestructura subyacente se encuentra a cierta distancia física de los sistemas de adquisición. En caso de que las condiciones del proyecto demanden establecer una comunicación de mayor distancia, protocolos más robustos deben ser utilizado como LoraWan, Zigbe, u otros que involucren comunicación por radio o redes celulares.</p>
+<p>En el campo de la comunicación WEB se deben adoptar ciertos tecnologías o protocolos de red para la transmisión de datos, como lo es el conocido MQTT (Message Queuing Telemetry Transport), los tipicos Web server o HTTP (Hypertext Transfer Protocol), o WebSockets. La elección, de nuevo, dependerá de las necesidades específicas del proyecto, incluyendo la seguridad, el rendimiento, la eficiencia energética y la compatibilidad con la infraestructura existente.</p>
+<p>Como se habrá notado, algunas simulaciones utilizadas en la <a class="reference internal" href="03-activity-1.html"><span class="doc std std-doc">Actividad 1</span></a> permitieron mostrar la implementación del protocolo MQTT en aplicaciones de IoT sin entrar en detalles técnicos exhaustivos. Al final de esta sección, se tratará de ampliar este tema para lograr un entendimiento básico. Otros protocolos de red como HTTP o WebSocket serán explorados más adelante, cuando se este trabajando en el backend y frontend del sistema. Por ahora, nos enfocamos en realizar la transmisión de datos desde el sistema electrónico a través de protocolos de comunicación serial directamente a una computadora (o Raspberry), donde la información podrá ser analizada y publicada en una base de datos.</p>
+<section id="comunicacion-serial-con-arduino">
+<h2>Comunicación serial con Arduino<a class="headerlink" href="#comunicacion-serial-con-arduino" title="Permalink to this heading">#</a></h2>
+<p>la comunicación serial es una forma sencilla y ampliamente utilizada de establecer la comunicación entre un Arduino (en general cualquier placa de desarrollo) y otros dispositivos. Ofrece simplicidad, disponibilidad y bidireccionalidad, lo que la hace adecuada para una variedad de aplicaciones en las que se requiere la transferencia de datos de manera secuencial y en tiempo real.</p>
+<p>Al ser un tipo de comunicación síncrona, se debe asegurar una adecuada sincronización entre los dispositivos, esto es, establecer la velocidades de transmisión, conocidas como baudios igual en ambos puntos. Los baudios más comunes incluyen 9600, 19200, 38400, 57600 y 115200.</p>
+<p>Para utilizar la comunicación serial en Arduino, se utilizan las funciones <code class="docutils literal notranslate"><span class="pre">Serial.begin()</span></code> para inicializar el puerto serial y <code class="docutils literal notranslate"><span class="pre">Serial.print()</span></code> o <code class="docutils literal notranslate"><span class="pre">Serial.write()</span></code> para enviar datos. Por otro lado, se utiliza <code class="docutils literal notranslate"><span class="pre">Serial.available()</span></code> para verificar si hay datos disponibles para leer y <code class="docutils literal notranslate"><span class="pre">Serial.read()</span></code> u otras para leer los datos recibidos. Puede consultar la documentación oficial (<a class="reference external" href="https://www.arduino.cc/reference/en/language/functions/communication/serial/">link</a>) para explorar los metodos disponibles. También es una buena práctica encapsular las rutinas relacionadas con las lecturas del puerto serial en una función llamada <code class="docutils literal notranslate"><span class="pre">serialEvent()</span></code>, de forma que la lógica de lectura de comandos enviados al dispositivo quede separada del bloque principal. La aplicación de esto se ve en la <a class="reference internal" href="06-activity-3.html"><span class="doc std std-doc">Actividad 3</span></a></p>
+</section>
+<section id="protocolo-mqtt">
+<h2>Protocolo MQTT<a class="headerlink" href="#protocolo-mqtt" title="Permalink to this heading">#</a></h2>
+<p>Es un protocolo de mensajería ligero diseñado para la comunicación entre dispositivos conectados a través de redes. Fue creado por IBM y se ha convertido en un estándar ampliamente utilizado en el campo de la Internet de las cosas (IoT). MQTT sigue el paradigma de <strong>publicación-suscripción</strong>, lo que significa que los dispositivos pueden publicar mensajes en temas (<strong>topics</strong>) y suscribirse a temas para recibir los mensajes publicados.</p>
+<p><strong>Principios básicos de MQTT:</strong></p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#sistemas-de-adquisicion" id="id5">Sistemas de adquisición</a></p>
-<ul>
-<li><p><a class="reference internal" href="#microcontroladores" id="id6">Microcontroladores</a></p></li>
-<li><p><a class="reference internal" href="#microprocesadores" id="id7">Microprocesadores</a></p></li>
-<li><p><a class="reference internal" href="#microcomputadoras" id="id8">Microcomputadoras</a></p></li>
-<li><p><a class="reference internal" href="#fpga" id="id9">FPGA</a></p></li>
-<li><p><a class="reference internal" href="#programacion" id="id10">Programación</a></p></li>
-<li><p><a class="reference internal" href="#placas-de-desarrollo" id="id11">Placas de desarrollo</a></p></li>
+<li><p><strong>Broker MQTT</strong>: Se utiliza un intermediario llamado “broker” para facilitar la comunicación entre los dispositivos. El broker es responsable de recibir los mensajes publicados y reenviarlos a los dispositivos suscritos a los temas correspondientes.</p></li>
+<li><p><strong>Publicación</strong>: Los dispositivos publican mensajes en un tema específico. Un tema puede verse como una etiqueta o categoría que identifica el contenido del mensaje. Los dispositivos pueden publicar mensajes en múltiples temas.</p></li>
+<li><p><strong>Suscripción:</strong> Los dispositivos pueden suscribirse a uno o más temas para recibir los mensajes publicados en esos temas. Al suscribirse a un tema, el dispositivo indicará al broker qué temas le interesan y el broker reenviará los mensajes correspondientes.</p></li>
 </ul>
-</li>
-</ul>
-</nav>
-<p>Una vez la señal a registrar se ha digitalizado, esta es adquirida y enrutada hacia la nube a través de los getway por una unidad de procesamiento y control programada con este fin. Como se comentó antes, este sistema de computo puede variar según las necesidades del propio sistema, pero en términos generales uno puede destacar cuatro tipos de tecnologías que se pueden emplear: Los microcontroladores, los microprocesadores, los microcomputadores e incluso las FPGAs. Estos se han nombrado en orden de complejidad interna y poder de computó.</p>
-<section id="microcontroladores">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Microcontroladores</a><a class="headerlink" href="#microcontroladores" title="Permalink to this heading">#</a></h2>
-<figure class="margin align-right" id="id1">
-<a class="reference internal image-reference" href="../_images/microcontroladores.png"><img alt="../_images/microcontroladores.png" src="../_images/microcontroladores.png" style="width: 260.40000000000003px; height: 213.20000000000002px;" /></a>
+<p>En la <a class="reference internal" href="#mqtt-protocol"><span class="std std-ref">Fig. X</span></a>, se puede apreciar un esquema general que ilustra el flujo de datos en una red de comunicación con el protocolo MQTT.</p>
+<figure class="align-default" id="mqtt-protocol">
+<a class="reference internal image-reference" href="../_images/MQTT-protocol.png"><img alt="../_images/MQTT-protocol.png" src="../_images/MQTT-protocol.png" style="width: 587.6px; height: 359.20000000000005px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Microcontroladores.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Imagen tomada de de <a class="reference external" href="https://www.twilio.com/blog/what-is-mqtt">link</a></span><a class="headerlink" href="#mqtt-protocol" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Un microcontrolador es un circuito integrado o “chip” compacto y altamente integrado, que combina en un solo encapsulado un gran número de componentes y que tiene la capacidad de ser programado. Está especialmente diseñado para controlar y supervisar sistemas en tiempo real. Los microcontroladores son reconocidos por su eficiencia energética, tamaño reducido y bajo costo. Además, suelen contar con una arquitectura RISC (Reduced Instruction Set Computer) que los hace adecuados para aplicaciones con recursos limitados, lo cual es ideal para proyectos de IoT y sistemas embebidos de diversos niveles de complejidad. Un microcontrolador debe incluir tres elementos básicos en su interior: una unidad central de procesamiento (CPU), varios tipos de memorias (volátiles y persistentes) y diferentes tipos de entradas y salidas. Algunos de los microcontroladores más comunes y populares en el mercado son el PIC (Peripheral Interface Controller) de Microchip, el STM32 de STMicroelectronics y los diferentes microcontroladores de la familia AVR de Atmel, que son lo que se integran en las placas Arduino. [ref Torrente, O. 2013]</p>
+<p>MQTT presenta una serie de ventajas significativas. En primer lugar, es un protocolo ligero que utiliza un formato de mensaje compacto, lo que reduce el consumo de ancho de banda y la carga en los recursos del sistema. Esta eficiencia lo hace especialmente adecuado para dispositivos con restricciones de energía y capacidad de procesamiento.</p>
+<p>En segundo lugar, MQTT es altamente escalable, lo que significa que puede soportar una gran cantidad de dispositivos conectados simultáneamente. Esto se logra a través de su enfoque de comunicación basado en el modelo de publicación y suscripción. Permite una arquitectura flexible y distribuida, donde los dispositivos se pueden unir y dejar la red de manera dinámica.</p>
+<p>En tercer lugar, MQTT proporciona niveles de QoS (Quality of Service) que garantizan la entrega confiable de los mensajes. Esto es especialmente importante en entornos donde la pérdida de datos no es aceptable, como en aplicaciones críticas o sistemas de monitoreo. Los niveles de QoS permiten controlar el flujo de mensajes y asegurar que lleguen en el orden correcto y sin pérdidas.</p>
+<p>Otra ventaja de MQTT es su baja latencia. Los mensajes se entregan rápidamente entre los dispositivos conectados, lo que permite una comunicación en tiempo real y una respuesta rápida a eventos o cambios en el sistema.</p>
+<p>Por último, MQTT es altamente compatible y se puede implementar en una amplia gama de dispositivos y plataformas. Esto facilita su integración en diferentes entornos y sistemas existentes, lo que lo convierte en una opción flexible y versátil para la comunicación en el Internet de las Cosas y otras aplicaciones de red.</p>
 </section>
-<section id="microprocesadores">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">Microprocesadores</a><a class="headerlink" href="#microprocesadores" title="Permalink to this heading">#</a></h2>
-<figure class="margin align-right" id="id2">
-<a class="reference internal image-reference" href="../_images/microprocesadores.png"><img alt="../_images/microprocesadores.png" src="../_images/microprocesadores.png" style="width: 140.4px; height: 277.6px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Microprocesadores.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Son dispositivos electrónicos que contienen una unidad central de procesamiento (CPU), junto con otros componentes esenciales para su funcionamiento, pero, a diferencia de los microcontroladores, los microprocesadores generalmente no incluyen periféricos integrados en el chip, y se espera que se conecten a través de buses externos. Además, los microprocesadores suelen tener una memoria caché de nivel 1, pero requieren módulos de memoria externos para el almacenamiento principal. Los microprocesadores son más potentes y pueden incluso llegar ejecutar sistemas operativos completos y aplicaciones más complejas. Estos chips son conocidos por su capacidad de procesamiento, flexibilidad y capacidad para ejecutar tareas exigentes. Algunas de las características comunes de los microprocesadores incluyen múltiples núcleos de procesamiento, altas frecuencias de reloj y cachés de memoria de gran tamaño. Entre los microprocesadores más populares se encuentran los fabricados por Intel y AMD, como los procesadores Intel Core i7 y los AMD Ryzen.</p>
-</section>
-<section id="microcomputadoras">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">Microcomputadoras</a><a class="headerlink" href="#microcomputadoras" title="Permalink to this heading">#</a></h2>
-<p>También conocidos como microordenadores de placa única (SBC, por sus siglas en inglés), son dispositivos compactos que integran en una sola placa un microprocesador, memoria, entradas/salidas y periféricos, así como puertos de conexión como USB, HDMI, Ethernet, entre otros. Estos dispositivos son similares a los microprocesadores en cuanto a su capacidad de ejecutar sistemas operativos completos y aplicaciones más complejas, pero se diferencian en que incluyen componentes adicionales para brindar capacidades de conectividad y expansión. Algunos de los microcomputadores más comunes y populares en el mercado incluyen la Raspberry Pi, la BeagleBone Black y la Odroid.</p>
-<figure class="align-default" id="id3">
-<a class="reference internal image-reference" href="../_images/microcomputadoras.png"><img alt="../_images/microcomputadoras.png" src="../_images/microcomputadoras.png" style="width: 1017.2px; height: 201.60000000000002px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Microordedenadores.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="fpga">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">FPGA</a><a class="headerlink" href="#fpga" title="Permalink to this heading">#</a></h2>
-<p>Son dispositivos electrónicos que ofrecen una alta flexibilidad y capacidad de personalización en términos de hardware. A diferencia de los microcontroladores y microprocesadores, las FPGA permiten configurar y reconfigurar la lógica digital en el campo, lo que significa que se pueden adaptar y modificar según las necesidades específicas de una aplicación. Estos dispositivos contienen una matriz de bloques lógicos y elementos de interconexión que pueden programarse para realizar funciones lógicas y de procesamiento. Las FPGA son ideales para aplicaciones que requieren un alto rendimiento, procesamiento paralelo y adaptabilidad, como sistemas de comunicaciones, procesamiento de señales, aceleración de algoritmos, prototipado rápido y más. Algunas de las FPGA más comunes y populares en el mercado son las de Xilinx, como las series Virtex y Spartan, y las de Intel (anteriormente Altera), como las series Cyclone y Stratix. La últimas tendencias en este campo apuntan a placas que integran la teconolgía FPGA y los microprocesadores.</p>
-</section>
-<section id="programacion">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">Programación</a><a class="headerlink" href="#programacion" title="Permalink to this heading">#</a></h2>
-<p>Es claro, entonces, que la elección de la tecnología a utilizar como unidad de adquisición y procesamiento dependerá de las características del proyecto. Una vez definido esto, el siguiente paso es la programación de estas tecnologías. Cada una tiene su enfoque específico. Los microcontroladores se programan en lenguajes de bajo nivel como C o ensamblador. Sin embargo, es importante mencionar que existen alternativas de alto nivel que simplifican su uso, como entornos de desarrollo integrados o IDE. Por otro lado, los microprocesadores suelen ser programados utilizando lenguajes de alto nivel como C++, Java o Python, y se ejecutan en sistemas operativos. Los microcomputadores también admiten una amplia gama de lenguajes de programación y frameworks, lo que los hace flexibles en términos de desarrollo de software. En cuanto a las FPGA, se programan utilizando lenguajes de descripción de hardware (HDL) como VHDL o Verilog, que permiten describir la lógica y las conexiones dentro del dispositivo. Estos lenguajes se sintetizan y se cargan en la FPGA para su funcionamiento.</p>
-</section>
-<section id="placas-de-desarrollo">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink">Placas de desarrollo</a><a class="headerlink" href="#placas-de-desarrollo" title="Permalink to this heading">#</a></h2>
-<p>Hoy en día, la programación de microcontroladores y otros dispositivos no se realiza directamente quemando el programa en el microcontrolador, sino que se aprovechan los ecosistemas de desarrollo que se han creado. Estos ecosistemas ofrecen placas de desarrollo y entornos amigables y accesibles para prototipar y desarrollar proyectos con microcontroladores, microprocesadores y otros dispositivos. Un ejemplo destacado es Arduino, una plataforma ampliamente utilizada y de código abierto que proporciona una placa de desarrollo basada en microcontroladores. Cuenta con un entorno de programación intuitivo basado en C++ y una comunidad activa de usuarios. Otra placa popular es ESP32, que combina un microcontrolador de alto rendimiento con capacidades de conectividad Wi-Fi y Bluetooth. Es compatible con el entorno de desarrollo de Arduino, lo que lo convierte en una opción ideal para aplicaciones IoT. Por último, la Raspberry Pi es una placa de microcomputadora que permite ejecutar sistemas operativos completos y ofrece una amplia gama de puertos y capacidades. Esto la convierte en una elección versátil para proyectos de computación y automatización.</p>
-<figure class="align-default" id="id4">
-<a class="reference internal image-reference" href="../_images/placas_de_desarrollo.png"><img alt="../_images/placas_de_desarrollo.png" src="../_images/placas_de_desarrollo.png" style="width: 590.0px; height: 202.0px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Placas de desarrollo.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>A continuación, se mostrará cómo utilizar estas herramientas para el diseño del sistema electrónico de dispositivos IoT.</p>
-</section>
-<div class="toctree-wrapper compound">
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -495,20 +456,20 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="01-sensors-signals.html"
+       href="05-advanced-arduino.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Sensores y señales</p>
+        <p class="prev-next-title">Arduino - características avanzadas</p>
       </div>
     </a>
     <a class="right-next"
-       href="02-1-arduino.html"
+       href="03-activity-1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Arduino</p>
+        <p class="prev-next-title">Actividad 1</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -527,12 +488,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microcontroladores">Microcontroladores</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microprocesadores">Microprocesadores</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microcomputadoras">Microcomputadoras</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fpga">FPGA</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programacion">Programación</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#placas-de-desarrollo">Placas de desarrollo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comunicacion-serial-con-arduino">Comunicación serial con Arduino</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocolo-mqtt">Protocolo MQTT</a></li>
 </ul>
   </nav></div>
 

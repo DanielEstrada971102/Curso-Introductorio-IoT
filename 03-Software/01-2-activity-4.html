@@ -1,0 +1,699 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Actividad 4 &#8212; Curso Introductorio a IoT</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/_myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '03-Software/01-2-activity-4';</script>
+    <link rel="shortcut icon" href="../_static/page-icon-2.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Frontend" href="02-Frontend.html" />
+    <link rel="prev" title="Persistencia de la información" href="01-1-databases.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../00-informacion-curso.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00-informacion-curso.html">
+                    Información del curso
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-iot-intro.html">Internet de las cosas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-Hardware/00-hardware-intro.html">Dispositivos y Hardware</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-Hardware/01-sensors-signals.html">Sensores y señales</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../02-Hardware/02-acquisition-devices.html">Sistemas de adquisición</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../02-Hardware/02-1-arduino.html">Arduino</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-Hardware/02-2-esp32.html">ESP32</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-Hardware/02-3-raspberry.html">Raspberry Pi</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Hardware/05-advanced-arduino.html">Arduino - características avanzadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Hardware/07-data-transmission.html">Transmisión de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Hardware/03-activity-1.html">Actividad 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Hardware/04-activity-2.html">Actividad 2 (opcional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Hardware/06-activity-3.html">Actividad 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00-software-intro.html">Software</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="01-Backend.html">Backend</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01-1-databases.html">Persistencia de la información</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Actividad 4</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02-Frontend.html">Frontend</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT/issues/new?title=Issue%20on%20page%20%2F03-Software/01-2-activity-4.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/03-Software/01-2-activity-4.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Actividad 4</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-el-gestor-de-la-nubemongodb-atlas">Usando el  gestor de la nubeMongoDB Atlas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-el-gestor-creado-para-el-curso">Usando el gestor creado para el curso</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="actividad-4">
+<h1>Actividad 4<a class="headerlink" href="#actividad-4" title="Permalink to this heading">#</a></h1>
+<p><strong>Recopilación y Publicación de datos a una base de datos de MongoDB con Python</strong></p>
+<p><strong>Objetivo</strong>: Aprender a utilizar la biblioteca <code class="docutils literal notranslate"><span class="pre">PyMongo</span></code>, <code class="docutils literal notranslate"><span class="pre">PySerial</span></code> y <code class="docutils literal notranslate"><span class="pre">Request</span></code> para establecer una conexión con una base de datos MongoDB y publicar los datos obtenidos del arduino a tráves de comunicación serial.</p>
+<p><strong>Descripción:</strong> En esta actividad, se realizará la integración del sistema de monitoreo de temperatura y humedad desarrollado en la <a class="reference internal" href="../02-Hardware/03-activity-1.html"><span class="doc std std-doc">Actividad 3</span></a> con una base de datos para almecenar la información obtenida por Arduino. El objetivo es enviar los datos recopilados por el puerto serial a la base de datos para su almacenamiento y futura consulta. Para llevar a cabo esta integración, se utilizará la biblioteca <code class="docutils literal notranslate"><span class="pre">PyMongo</span></code>, <code class="docutils literal notranslate"><span class="pre">PySerial</span></code>, y <code class="docutils literal notranslate"><span class="pre">Request</span></code> que proporcionan interfaces de Python para trabajar con MongoDB,  con los puertos de comunicación serial, y con peticiones HTTP. Se debe tener en cuenta que para la lectura de los datos que envía el arduino hay que realiazar la decodificación de los datos para formar un mensaje en formato <code class="docutils literal notranslate"><span class="pre">.json</span></code> el cual es necesario para la publicación.</p>
+<p>A continuación se presenta un par de soluciones.</p>
+<section id="usando-el-gestor-de-la-nubemongodb-atlas">
+<h2>Usando el  gestor de la nubeMongoDB Atlas<a class="headerlink" href="#usando-el-gestor-de-la-nubemongodb-atlas" title="Permalink to this heading">#</a></h2>
+<p>El siguiete código lee los datos del arduino cada 2s, los códifica adecuadamente y los publica en la base de datos que se creo en el servidor MongoDB Atlas (Se debe crear antes, en caso de no haberlo hecho, sería el primer pasó a seguir).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">serial</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">pymongo.mongo_client</span> <span class="kn">import</span> <span class="n">MongoClient</span>
+<span class="kn">from</span> <span class="nn">pymongo.server_api</span> <span class="kn">import</span> <span class="n">ServerApi</span>
+
+<span class="c1"># Sting de conexión, se obtiene directamente de Atlas, cuando se consultan las formas de conexión.</span>
+<span class="c1"># CAMBIARLO SEGUN EL SERVIDOR QUE HAYAN CREADO</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="s2">&quot;mongodb+srv://DanielEstrada:daniel1234@iot-example-database.kp5zpry.mongodb.net/?retryWrites=true&amp;w=majority&quot;</span>
+
+<span class="c1"># Se crea un nuevo cliente y se conecta al servidor</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">server_api</span><span class="o">=</span><span class="n">ServerApi</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">))</span>
+
+<span class="c1"># Se envía un &quot;ping&quot; para confirmar que se conector satisfacoriamente </span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">admin</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s1">&#39;ping&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La conexión a MongoDB fue exitosa!&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+<span class="c1"># Seleccionar la base de datos y la colección adecuada</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="s1">&#39;iot-example-database&#39;</span><span class="p">]</span> <span class="c1"># CAMBIAR ACORDE A LA BASE DE DATOS CREADA</span>
+<span class="n">collection</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;temp-humidity&#39;</span><span class="p">]</span> <span class="c1"># CAMBIAR ACORDE A LA COLECCIÓN CREADA</span>
+
+<span class="k">def</span> <span class="nf">publish_data</span><span class="p">(</span><span class="n">json_data</span><span class="p">):</span>
+    <span class="c1"># Insertar el documento en la colección de la base de datos</span>
+    <span class="n">collection</span><span class="o">.</span><span class="n">insert_one</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Datos publicados en la base de datos MongoDB!&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">extract_info</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="c1"># Se construye un mensaje en formato json (diccionario) para poder publicar el dato</span>
+    <span class="n">temp</span><span class="p">,</span> <span class="n">humidity</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">humidity</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">humidity</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="n">temp</span><span class="p">,</span> <span class="s2">&quot;humidity&quot;</span><span class="p">:</span> <span class="n">humidity</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Seleccionar el puerto COM del arduino</span>
+    <span class="n">SerialPort</span> <span class="o">=</span> <span class="s2">&quot;COM10&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">dev</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">SerialPort</span><span class="p">,</span> <span class="mi">115200</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">dev</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c1"># Se cierra el puerto en caso de que este abierto</span>
+        <span class="n">dev</span><span class="o">.</span><span class="n">open</span><span class="p">()</span> <span class="c1"># Se abre el puerto</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Conectado al puerto serial: &quot;</span> <span class="o">+</span> <span class="n">SerialPort</span><span class="p">)</span>
+        
+        <span class="n">dev</span><span class="o">.</span><span class="n">flushInput</span><span class="p">()</span> <span class="c1"># Se limpia el bufer de entrada</span>
+        <span class="n">dev</span><span class="o">.</span><span class="n">flushOutput</span><span class="p">()</span> <span class="c1"># Se limpia el bufer de salida</span>
+
+        <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">dev</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;ENVIAR&quot;</span><span class="p">))</span> <span class="c1"># Se envia la instruction al Arduino para enviar las mediciones</span>
+            
+            <span class="c1"># Se lee la respuesta del arduiono</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="c1"># strip remueve los espacios y el final de linea</span>
+
+            <span class="c1"># Si no es un dato vacio... </span>
+            <span class="k">if</span> <span class="n">data</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">extract_info</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                <span class="n">publish_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+        <span class="n">dev</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">dev</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Si todo sale bien, usted podrá ver como sus datos son publicados en la base de datos creada en el servidor Atlas.</p>
+<figure class="align-default" id="atlasdataview">
+<a class="reference internal image-reference" href="../_images/AtlasdataView.png"><img alt="../_images/AtlasdataView.png" src="../_images/AtlasdataView.png" style="width: 708.8000000000001px; height: 421.6px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 27 </span><span class="caption-text">Captura de cloud.mongodb.com</span><a class="headerlink" href="#atlasdataview" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>En la practica, la manipulación directa de la base de datos no se recomienta, esto, para tratar de preservar la integridad de la base de datos y la gestión de la información. La interacción con la base de datos se suele automatizar a través de las APIs y queda oculta a la manipulación directa. Esto es lo que se hará posteriormente en el curso. Por ahora, a continuación se muestra como utilizar el protocolo HTTP para enviar los datos a un servidor que implementa la metodología mencionada.</p>
+</div>
+</section>
+<section id="usando-el-gestor-creado-para-el-curso">
+<h2>Usando el gestor creado para el curso<a class="headerlink" href="#usando-el-gestor-creado-para-el-curso" title="Permalink to this heading">#</a></h2>
+<p>Como podrá recordar, para este curso se ha montado una <a class="reference external" href="https://iotudeab4a1-fabioc9675.b4a.run/">plataforma</a> que implemeta los protocolos de comunicación que se trabajaran durante el módulo. Allí podrá encontrar implementado el protocolo HTTP o Web server. El servidor que despliega esta plataforma tiene implementada la API adecuada que publica en una base de datos de de MongoDB el dato enviado. El siguiente código usa la libreri <code class="docutils literal notranslate"><span class="pre">Request</span></code> para este fin.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">serial</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># dirección a la cual hacer el POST de los datos.</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="s2">&quot;https://iotudeab4a1-fabioc9675.b4a.run/api/instrumentation/&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">publish_data</span><span class="p">(</span><span class="n">json_data</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;https://iotudeab4a1-fabioc9675.b4a.run/api/instrumentation/&#39;</span><span class="p">,</span><span class="n">json</span><span class="o">=</span><span class="n">json_data</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">extract_info</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="c1"># Se construye un mensaje en formato json (diccionario) para poder publicar el dato</span>
+    <span class="n">temp</span><span class="p">,</span> <span class="n">humidity</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">humidity</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">humidity</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">data__temp_json</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;iotUdeA/&lt;webPost&gt;&quot;</span><span class="p">,</span> 
+		<span class="s2">&quot;author&quot;</span><span class="p">:</span><span class="s2">&quot;DanielE&quot;</span><span class="p">,</span> <span class="c1"># Poner el nombre correspondiente</span>
+		<span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;webserver&quot;</span><span class="p">,</span> 
+		<span class="s2">&quot;varname&quot;</span><span class="p">:</span><span class="s2">&quot;Temperature&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;varvalue&quot;</span><span class="p">:</span><span class="n">temp</span><span class="p">,</span>
+	<span class="p">}</span>
+    <span class="n">data__humd_json</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;iotUdeA/&lt;webPost&gt;&quot;</span><span class="p">,</span> 
+		<span class="s2">&quot;author&quot;</span><span class="p">:</span><span class="s2">&quot;DanielE&quot;</span><span class="p">,</span> <span class="c1"># Poner el nombre correspondiente</span>
+		<span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;webserver&quot;</span><span class="p">,</span> 
+		<span class="s2">&quot;varname&quot;</span><span class="p">:</span><span class="s2">&quot;Humidity&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;varvalue&quot;</span><span class="p">:</span><span class="n">humidity</span><span class="p">,</span>
+	<span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">data__temp_json</span><span class="p">,</span> <span class="n">data__humd_json</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Seleccionar el puerto COM del arduino</span>
+    <span class="n">SerialPort</span> <span class="o">=</span> <span class="s2">&quot;COM10&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">dev</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">SerialPort</span><span class="p">,</span> <span class="mi">115200</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">dev</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c1"># Se cierra el puerto en caso de que este abierto</span>
+        <span class="n">dev</span><span class="o">.</span><span class="n">open</span><span class="p">()</span> <span class="c1"># Se abre el puerto</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Conectado al puerto serial: &quot;</span> <span class="o">+</span> <span class="n">SerialPort</span><span class="p">)</span>
+        
+        <span class="n">dev</span><span class="o">.</span><span class="n">flushInput</span><span class="p">()</span> <span class="c1"># Se limpia el bufer de entrada</span>
+        <span class="n">dev</span><span class="o">.</span><span class="n">flushOutput</span><span class="p">()</span> <span class="c1"># Se limpia el bufer de salida</span>
+
+        <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">dev</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;ENVIAR&quot;</span><span class="p">))</span> <span class="c1"># Se envia la instruction al Arduino para enviar las mediciones</span>
+            
+            <span class="c1"># Se lee la respuesta del arduiono</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="c1"># strip remueve los espacios y el final de linea</span>
+
+            <span class="c1"># Si no es un dato vacio... </span>
+            <span class="k">if</span> <span class="n">data</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                <span class="n">data_temp_json</span><span class="p">,</span> <span class="n">data_humd_json</span> <span class="o">=</span> <span class="n">extract_info</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">data_temp_json</span><span class="p">)</span>
+                <span class="n">publish_data</span><span class="p">(</span><span class="n">data_temp_json</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">data_humd_json</span><span class="p">)</span>
+                <span class="n">publish_data</span><span class="p">(</span><span class="n">data_humd_json</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Datos publicadores&quot;</span><span class="p">)</span>
+
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+        <span class="n">dev</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">dev</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para las personas que asisten de forma virtual y no tienen acceso a una tarjeta de desarrollo para la lectura del puerto serial, se recomienda enfocarse en la implementación de rutinas para la publicación de datos utilizando diferentes protocolos de comunicación.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./03-Software"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01-1-databases.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Persistencia de la información</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02-Frontend.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Frontend</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-el-gestor-de-la-nubemongodb-atlas">Usando el  gestor de la nubeMongoDB Atlas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-el-gestor-creado-para-el-curso">Usando el gestor creado para el curso</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Daniel Estrada & Fabián Castaño / Universidad de Antioquia - GICM
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

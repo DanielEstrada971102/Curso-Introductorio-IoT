@@ -169,12 +169,19 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="02-Hardware/02-3-raspberry.html">Raspberry Pi</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="02-Hardware/03-actividad-1.html">Actividad 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02-Hardware/04-actividad-2.html">Actividad 2 (opcional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Hardware/05-advanced-arduino.html">Arduino - características avanzadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Hardware/07-data-transmission.html">Transmisión de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Hardware/03-activity-1.html">Actividad 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Hardware/04-activity-2.html">Actividad 2 (opcional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Hardware/06-activity-3.html">Actividad 3</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="03-Software/00-software-intro.html">Software</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="03-Software/01-Backend.html">Backend</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="03-Software/01-Backend.html">Backend</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="03-Software/01-1-databases.html">Persistencia de la información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03-Software/01-2-activity-4.html">Actividad 4</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="03-Software/02-Frontend.html">Frontend</a></li>
 </ul>
 </li>
@@ -431,7 +438,7 @@ document.write(`
 <section id="teconologias-para-iot">
 <h2><a class="toc-backref" href="#id6" role="doc-backlink">Teconologías para IoT</a><a class="headerlink" href="#teconologias-para-iot" title="Permalink to this heading">#</a></h2>
 <p>En cada etapa mencionada se emplean ciertoas tecnologías según el proposito, a continuación se trata de mencionar algunas destacadas y en particular, las que son del interes de este curso.</p>
-<p>En la primera etapa del desarrollo de sistemas IoT, lo referente al hardware, se utiliza una combinación o arreglo de sensores y actuadores para recopilar datos del entorno y llevar a cabo acciones físicas en respuesta, los cuales son centralizados en sistema de computo como microcontroladores, microprocesadores, microcomputadors o incluso teconologías de hardware reprogramable como FPGAs (<em>Field Programmable Gate Arrays</em>). Algunos de los más destacados son <strong>Arduino</strong>, <strong>ESP32</strong> o <strong>Raspberry Pi</strong>. Los datos recopilados por los dispositivos IoT deben ser trasmitidos a través de protocolos de comunicación como MQTT, CoAP o HTTP, para enviarlos a la infraestructura subyacente a tráves del algún “getaway”. Por lo tanto, en esta etapa también podrían ser necesarias tecnologías de red y comunicación como UART, SPI, Wi-Fi, Bluetooth, Zigbee, LoRaWAN, entre otras.</p>
+<p>En la primera etapa del desarrollo de sistemas IoT, lo referente al hardware, se utiliza una combinación o arreglo de sensores y actuadores para recopilar datos del entorno y llevar a cabo acciones físicas en respuesta, los cuales son centralizados en sistema de computo como microcontroladores, microprocesadores, microcomputadors o incluso teconologías de hardware reprogramable como FPGAs (<em>Field Programmable Gate Arrays</em>). Algunos de los más destacados son <strong>Arduino</strong>, <strong>ESP32</strong> o <strong>Raspberry Pi</strong>. Los datos recopilados por los dispositivos IoT deben ser trasmitidos a través de protocolos de comunicación como MQTT, CoAP o HTTP, para enviarlos a la infraestructura subyacente. Por lo tanto, en esta etapa también podrían ser necesarias tecnologías de red y comunicación como UART, SPI, Wi-Fi, Bluetooth, Zigbee, LoRaWAN, entre otras.</p>
 <p>En la fase de infraestructura y conectividad, se emplean diversas tecnologías para lograr una comunicación eficiente y un intercambio fluido de datos entre los dispositivos IoT y la nube. En este punto se pueden establecer servidores que integran diversidad de servios que permite gestionar de manera eficiente y escalable grandes volúmenes de información. Para este proposito, en esta etapa que representa el Back-end del sistema IoT, se emplean teconologías como <strong>Python</strong>, JavaScript, PhP, entre otras. Algunos de los servicios existentes que pueden ser integrados abarcan plataformas en la nube como AWS IoT, Google Cloud IoT o Microsoft Azure IoT, que ofrecen servicios de almacenamiento, procesamiento y análisis de datos. El Back-end, como mediador entre los dispotivos, la nube y el usuario, se encarga también de la conexión a las bases de datos y del despliege de WEB APIs. Para el almacenamiento, se cuenta con una gran diversidad de teconologías de bases, particularmente para este curso, será de interes <strong>MongoDB</strong>. Para la creación de las APIs, se puede contar con herramientas como <strong>Flask</strong>, <strong>FastAPI</strong>, o <strong>Django</strong> si se habla de Python.</p>
 <p>En la etapa de Aplicaciones y Experiencia del Usuario en los sistemas IoT, el objetivo es mejorar la interacción y experiencia del usuario. Se pueden desarrollar aplicaciones móviles y web para que los usuarios puedan interactuar con los dispositivos IoT y acceder a los datos en tiempo real. En esta fase, se utilizan tecnologías como Python, JavaScript, o incluso Jupyter.</p>
 <div class="admonition note">

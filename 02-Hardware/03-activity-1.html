@@ -63,12 +63,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '02-Hardware/03-actividad-1';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02-Hardware/03-activity-1';</script>
     <link rel="shortcut icon" href="../_static/page-icon-2.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Actividad 2 (opcional)" href="04-actividad-2.html" />
-    <link rel="prev" title="Raspberry Pi" href="02-3-raspberry.html" />
+    <link rel="next" title="Actividad 2 (opcional)" href="04-activity-2.html" />
+    <link rel="prev" title="Transmisión de datos" href="07-data-transmission.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -169,12 +169,19 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="02-3-raspberry.html">Raspberry Pi</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="05-advanced-arduino.html">Arduino - características avanzadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-data-transmission.html">Transmisión de datos</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Actividad 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04-actividad-2.html">Actividad 2 (opcional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-activity-2.html">Actividad 2 (opcional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-activity-3.html">Actividad 3</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03-Software/00-software-intro.html">Software</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03-Software/01-Backend.html">Backend</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-Software/01-Backend.html">Backend</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-Software/01-1-databases.html">Persistencia de la información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-Software/01-2-activity-4.html">Actividad 4</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../03-Software/02-Frontend.html">Frontend</a></li>
 </ul>
 </li>
@@ -249,7 +256,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT/issues/new?title=Issue%20on%20page%20%2F02-Hardware/03-actividad-1.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/DanielEstrada971102/Curso-Introductorio-IoT/issues/new?title=Issue%20on%20page%20%2F02-Hardware/03-activity-1.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -279,7 +286,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/02-Hardware/03-actividad-1.md" target="_blank"
+      <li><a href="../_sources/02-Hardware/03-activity-1.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -404,7 +411,7 @@ document.write(`
 <figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="../_images/actividad-1-arduino-dht22.png"><img alt="../_images/actividad-1-arduino-dht22.png" src="../_images/actividad-1-arduino-dht22.png" style="width: 494.4px; height: 261.0px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Conexion del sensor y el LED a la placa Arduino Mega 2560.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Conexion del sensor y el LED a la placa Arduino Mega 2560.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Y el código sería:</p>
@@ -466,7 +473,7 @@ document.write(`
 <figure class="align-default" id="esp32-dht22">
 <a class="reference internal image-reference" href="../_images/actividad-1-esp32-dht22.png"><img alt="../_images/actividad-1-esp32-dht22.png" src="../_images/actividad-1-esp32-dht22.png" style="width: 253.2px; height: 320.4px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Conexion del sensor y el LED a la placa ESP32.</span><a class="headerlink" href="#esp32-dht22" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">Conexion del sensor y el LED a la placa ESP32.</span><a class="headerlink" href="#esp32-dht22" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Y el código sería:</p>
@@ -686,16 +693,16 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="02-3-raspberry.html"
+       href="07-data-transmission.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Raspberry Pi</p>
+        <p class="prev-next-title">Transmisión de datos</p>
       </div>
     </a>
     <a class="right-next"
-       href="04-actividad-2.html"
+       href="04-activity-2.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
