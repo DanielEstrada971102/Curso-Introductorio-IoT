@@ -1,4 +1,4 @@
-![img](../img/RapsberryHeader.png) 
+![img](../_static/img/RapsberryHeader.png) 
 # Raspberry Pi
 La Raspberry Pi es una microcomputadora de bajo costo y tamaño reducido. Ofrece un sistema completo en una sola tarjeta que integra un procesador, memoria, puertos de entrada/salida, puertos periféricos de video, USB y conectividad a red. En términos simples, es una computadora con capacidades adicionales de entrada y salida de propósito general (GPIO), lo que la convierte en una herramienta poderosa para aplicaciones de IoT. Aunque la filosofía detrás del diseño de un sistema embebido es la reducción de recursos innecesarios, la Raspberry Pi integra casi todo lo necesario para el sistema electrónico y el backend de dispositivos IoT, lo que la hace atractiva para los desarrolladores.
 
@@ -10,7 +10,7 @@ La Raspberry Pi es conocida por su versatilidad y capacidad para ejecutar sistem
 
 La capacidad de interacción con el mundo físico de la tarjeta no se ve limitada por el hardware que integra. Una de las características que hacen atractivo el uso de Raspberry Pi en proyectos de IoT es su capacidad de escalabilidad. Si se utiliza la tarjeta como un servidor principal en un sistema, es posible crear una red de sistemas electrónicos de diferentes naturalezas que intercambien información con la tarjeta como getaway ({ref}`Fig. 13 <raspberry-server>`).
 
-```{figure} ../img/server-Raspberry-Pi.png
+```{figure} ../_static/img/server-Raspberry-Pi.png
 ---
 scale: 70%
 name: raspberry-server
@@ -21,7 +21,7 @@ Para trabajar entonces con estas tarjetas es necesio una configuración previa p
 
 ```{note}
 La tarjeta que se puede tener dispinible para este curso será especifiamente las **Raspberry Pi 4 modelo B** de 2 GB de e LPDDR4 RAM y procesador Quad core 64-bit ARM-Cortex A72 con una velocidad de reloj de 1.5GHz. La detalles tennicos completos los puede consultar directamente en el data sheet [link][2].
-```{figure} ../img/Raspberry-pi-4-pinout.png
+```{figure} ../_static/img/Raspberry-pi-4-pinout.png
 ---
 scale: 35%
 name: raspberry-modelb

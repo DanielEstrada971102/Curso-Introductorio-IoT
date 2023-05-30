@@ -388,6 +388,10 @@ document.write(`
 <p>También, además del LED que se enciendecuando la temperatura supere un umbral predefinido, se debe agregar un LED adicional que parpadeará constantemente, simulando un indicador de funcionamiento del sistema.</p>
 <p>Para llevar a cabo esta adaptación, se realizarán modificaciones en el código de Arduino, incorporando interrupciones para manejar la toma de datos el estado del LED.</p>
 <p>A continuación se presenta la solución</p>
+<video width="700" controls>
+  <source src="../_static/rec/actividad-3-record.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;DHT.h&gt;</span>
 
 <span class="c1">// Declaración de pines</span>
@@ -519,6 +523,10 @@ document.write(`
 <span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;Humedad (%): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="n">humidity</span><span class="p">));</span>
 <span class="p">}</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Tenga en cuenta que hay que verificar con que caracter de finalización de linea se envían los comandos en su implementación. En algunas ocaciones puede ser <code class="docutils literal notranslate"><span class="pre">\n</span></code>, mientras que en otras es <code class="docutils literal notranslate"><span class="pre">\r\n</span></code>. De acuerdo a esto, adapte la rutina de recepción del comando <code class="docutils literal notranslate"><span class="pre">ENVIAR</span></code>.</p>
 </div>
 <div class="admonition-opcional admonition">
 <p class="admonition-title">Opcional</p>

@@ -20,7 +20,7 @@ void loop(){
 ```
 Lo que se esperaría de este programa es que genere un pulso con un ancho en el orden de los ~70 ns, que corresponde a una frecuencia de procesamiento de 16 MHz. Sin embargo, una inspección rápida de la señal con un osciloscopio permite evidenciar un pulso de aproximadamente 4 us (ver {ref}`Fig.15 <signalcomparation>`). Esto ocurre porque, como no debería ser sorpresa para usted, en la ejecución de la función `digitalWrite` se ejecutan más instrucciones internamente, lo que representa un gasto en tiempo de cómputo. Manipular directamente los registros de entrada y salida, en lugar de las funciones de manipulación de pines, ataca esta problemática. Para ello, es necesario entender qué registros hay y cómo se manipulan.
 
-```{figure} ../img/singalcomparation.png
+```{figure} ../_static/img/singalcomparation.png
 ---
 scale: 50%
 name: signalcomparation
@@ -33,7 +33,7 @@ Dependiendo de la placa de desarrollo que se esté usando, se tendrá un número
 ### Ejemplo - Blinking-LED
 Realizaremos el clásico ejemplo de hacer titilar el LED del pin 13 integrado en la placa, pero usando los registros. Hay que tener en cuenta que el pin 13 se encuentra en el puerto B del microcontrolador en el bit 7 (MSB), ver ({ref}`Fig. 16 <PinRegControl>`). 
 
-```{figure} ../img/pinRegControl.png
+```{figure} ../_static/img/pinRegControl.png
 ---
 scale: 60%
 name: pinRegControl
@@ -119,21 +119,21 @@ Existen varios modos de generación de interrupciones, siendo los más comunes e
 
 La configuración del modo y el preescalar se realiza a través de los registros de control del Timer (TCCR#A y TCCR#B, donde "#" se refiere al número del Timer utilizado). El valor del contador del Timer se puede acceder a través del registro TCNT#. Por último, el registro TIMSK# permite habilitar los diferentes modos del Timer. Para obtener más detalles sobre los registros del Timer, se puede consultar el [datasheet][1] del microcontrolador ATmega2560. De allí se extrajeron las siguientes capturas :
 
-```{figure} ../img/TCCRegisters.png
+```{figure} ../_static/img/TCCRegisters.png
 ---
 scale: 40%
 name: TCCRegisters
 ---
 Arduino Mega 2560 TCCR1 A y B. Tomado del datasheet.
 ```
-```{figure} ../img/TCNCRegister.png
+```{figure} ../_static/img/TCNCRegister.png
 ---
 scale: 40%
 name: TCNCRegisters
 ---
 Arduino Mega 2560 TCNC1 L y H para completar los 16 bits. Tomado del datasheet.
 ```
-```{figure} ../img/ComparatorRegisters.png
+```{figure} ../_static/img/ComparatorRegisters.png
 ---
 scale: 40%
 name: ComparatorRegisters

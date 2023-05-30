@@ -4,7 +4,7 @@
 Una vez la señal a registrar se ha digitalizado, esta es adquirida y enrutada hacia la nube a través de los getway por una unidad de procesamiento y control programada con este fin. Como se comentó antes, este sistema de computo puede variar según las necesidades del propio sistema, pero en términos generales uno puede destacar cuatro tipos de tecnologías que se pueden emplear: Los microcontroladores, los microprocesadores, los microcomputadores e incluso las FPGAs. Estos se han nombrado en orden de complejidad interna y poder de computó. 
 
 ## Microcontroladores
-```{figure} ../img/microcontroladores.png
+```{figure} ../_static/img/microcontroladores.png
 ---
 scale: 40%
 align: right
@@ -15,7 +15,7 @@ Microcontroladores.
 Un microcontrolador es un circuito integrado o "chip" compacto y altamente integrado, que combina en un solo encapsulado un gran número de componentes y que tiene la capacidad de ser programado. Está especialmente diseñado para controlar y supervisar sistemas en tiempo real. Los microcontroladores son reconocidos por su eficiencia energética, tamaño reducido y bajo costo. Además, suelen contar con una arquitectura RISC (Reduced Instruction Set Computer) que los hace adecuados para aplicaciones con recursos limitados, lo cual es ideal para proyectos de IoT y sistemas embebidos de diversos niveles de complejidad. Un microcontrolador debe incluir tres elementos básicos en su interior: una unidad central de procesamiento (CPU), varios tipos de memorias (volátiles y persistentes) y diferentes tipos de entradas y salidas. Algunos de los microcontroladores más comunes y populares en el mercado son el PIC (Peripheral Interface Controller) de Microchip, el STM32 de STMicroelectronics y los diferentes microcontroladores de la familia AVR de Atmel, que son lo que se integran en las placas Arduino. [ref Torrente, O. 2013]
 
 ## Microprocesadores
-```{figure} ../img/microprocesadores.png
+```{figure} ../_static/img/microprocesadores.png
 ---
 scale: 40%
 align: right
@@ -27,7 +27,7 @@ Son dispositivos electrónicos que contienen una unidad central de procesamiento
 
 ## Microcomputadoras
 También conocidos como microordenadores de placa única (SBC, por sus siglas en inglés), son dispositivos compactos que integran en una sola placa un microprocesador, memoria, entradas/salidas y periféricos, así como puertos de conexión como USB, HDMI, Ethernet, entre otros. Estos dispositivos son similares a los microprocesadores en cuanto a su capacidad de ejecutar sistemas operativos completos y aplicaciones más complejas, pero se diferencian en que incluyen componentes adicionales para brindar capacidades de conectividad y expansión. Algunos de los microcomputadores más comunes y populares en el mercado incluyen la Raspberry Pi, la BeagleBone Black y la Odroid.
-```{figure} ../img/microcomputadoras.png
+```{figure} ../_static/img/microcomputadoras.png
 ---
 scale: 40%
 ---
@@ -42,7 +42,7 @@ Es claro, entonces, que la elección de la tecnología a utilizar como unidad de
 
 ## Placas de desarrollo 
 Hoy en día, la programación de microcontroladores y otros dispositivos no se realiza directamente quemando el programa en el microcontrolador, sino que se aprovechan los ecosistemas de desarrollo que se han creado. Estos ecosistemas ofrecen placas de desarrollo y entornos amigables y accesibles para prototipar y desarrollar proyectos con microcontroladores, microprocesadores y otros dispositivos. Un ejemplo destacado es Arduino, una plataforma ampliamente utilizada y de código abierto que proporciona una placa de desarrollo basada en microcontroladores. Cuenta con un entorno de programación intuitivo basado en C++ y una comunidad activa de usuarios. Otra placa popular es ESP32, que combina un microcontrolador de alto rendimiento con capacidades de conectividad Wi-Fi y Bluetooth. Es compatible con el entorno de desarrollo de Arduino, lo que lo convierte en una opción ideal para aplicaciones IoT. Por último, la Raspberry Pi es una placa de microcomputadora que permite ejecutar sistemas operativos completos y ofrece una amplia gama de puertos y capacidades. Esto la convierte en una elección versátil para proyectos de computación y automatización.
-```{figure} ../img/placas_de_desarrollo.png
+```{figure} ../_static/img/placas_de_desarrollo.png
 ---
 scale: 40%
 ---
