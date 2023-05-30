@@ -83,22 +83,23 @@ void loop() {
 
 
 void init_Timer(){
-    /* Con esta configuración se creara una interrupción cada 1 ms usando el Timer1
-        y un preescalar de 1024.
+    /* Con esta configuración se creara una interrupción cada 100 ms usando el Timer1
+        y un preescalar de 256.
         Calculos:
         clock --> 16 Mhz
-        Prescalar --> 1024;
-        velocidad de Timer 1= 16Mhz/1024 = 15625 Hz
-        Pulso = 1/15625 hz =    64us
-        Contador = 1 ms / 64us = 15625
+        Prescalar --> 256;
+        velocidad de Timer 1= 16Mhz/256 = 62500 Hz
+        Pulso = 1/62500 hz =    16us
+        Contador = 100 ms / 16us = 6250
     */
     cli();                // Se deshabilitan las interrupciones 
     TCNT1 = 0;	          // Se reinicia el contador del Timer 1.
     TCCR1A = 0;           // Se reinicia todo el registro TCCR1A
     TCCR1B = 0;           // Se reinicia todo el registro TCCR1A
-    TCCR1A |= B00000101;	// Se pone CS12 y CS10 en 1, es decir un preescalar de 1024
+    TCCR1B |= B00001000;    // Se pone el bit WGM12 en 1 para habilitar el modo Compare Match
+    TCCR1B |= B00000100;	// Se pone CS12 en 1 y los demás en cero, es decir un preescalar de 256
     TIMSK1 |= B00000010;	// Se habilita la interrupción por compare mathc
-    OCR1A = 15625;        // Se define el registo de comparacion A en este valor
+    OCR1A = 6250;        // Se define el registo de comparacion A en este valor
     sei();                // Se habilitan las interrupciones
 }
 
@@ -106,14 +107,14 @@ ISR(TIMER1_COMPA_vect){
     measureCounter++;
 
     // Frecuencia de muestreo de 200 ms
-    if (measureCounter == 200){
+    if (measureCounter == 2){
         measureCounter = 0;
         measureFlag = 1;
     }
 
     // Frecuencia del Led indicador de 0.5s
     ledCounter++;
-    if (ledCounter == 500)
+    if (ledCounter == 5)
     {
         ledCounter = 0;
         LedFlag = 1;
