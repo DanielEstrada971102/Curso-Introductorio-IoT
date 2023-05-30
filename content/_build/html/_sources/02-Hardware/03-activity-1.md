@@ -13,7 +13,7 @@ En caso de no contar con las placas de desarrollo o sensores debido a que está 
 ## Arduino
 Para el uso del sensor DHT22 se requiere importar la libreria especifica, si no la tiene en su maquina deberá hacerlo para que su programa funcone. Recuerda conectar el sensor DHT22 correctamente y asegurarte de que los pines utilizados coincidan con los definidos en ``DHTPIN`` y ``LEDPIN``. El esquema del sistema electronico es el siguiente:
 
-```{figure} ../img/actividad-1-arduino-dht22.png
+```{figure} ../_static/img/actividad-1-arduino-dht22.png
 ---
 scale: 60%
 ---
@@ -76,7 +76,7 @@ void loop() {
 ## ESP32
 Dado que ESP32 es compatible con el IDE de Arduino, la implementación es practicamente la misma, solo hay que tener en cuenta que se debe usar una librería diferente, en este caso, ``DHTesp.h``. Dicho esto, la conexión del sensor a la tarjeta quedaría:
 
-```{figure} ../img/actividad-1-esp32-dht22.png
+```{figure} ../_static/img/actividad-1-esp32-dht22.png
 ---
 scale: 60%
 name : esp32-dht22

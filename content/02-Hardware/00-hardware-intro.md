@@ -1,4 +1,4 @@
-![images](../img/Fig3-HardwareIoT.png) 
+![images](../_static/img/Fig3-HardwareIoT.png) 
 # Dispositivos y Hardware
 Los hardware utilizados en la creación de dispositivos IoT pueden variar según el propósito del dispositivo, los requisitos, el consumo de energía y otros factores que influyen en la elección de tecnologías específicas. Sin embargo, es innegable que, en términos generales, estos sistemas embebidos siguen la filosofía de minimización de recursos. Por lo tanto, un punto de partida común en el diseño de estos dispositivos es el uso de microcontroladores en lugar de potentes y grandes microprocesadores, a menos que sea estrictamente necesario.
 

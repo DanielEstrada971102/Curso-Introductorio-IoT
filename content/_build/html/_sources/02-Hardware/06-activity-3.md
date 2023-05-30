@@ -11,6 +11,11 @@ Para llevar a cabo esta adaptación, se realizarán modificaciones en el código
 
 A continuación se presenta la solución
 
+<video width="700" controls>
+  <source src="../_static/rec/actividad-3-record.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ```{code-block} arduino
 #include <DHT.h>
 
@@ -143,6 +148,10 @@ void send_measurement(){
     Serial.println("Humedad (%): " + String(humidity));
 }
 ```
+```{note}
+Tenga en cuenta que hay que verificar con que caracter de finalización de linea se envían los comandos en su implementación. En algunas ocaciones puede ser `\n`, mientras que en otras es `\r\n`. De acuerdo a esto, adapte la rutina de recepción del comando `ENVIAR`. 
+```
+
 ```{admonition} Opcional
 Puede tratar de implementar la escritura de los pines por medio de los registros. 
 ```

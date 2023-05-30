@@ -1,3 +1,3 @@
 # Software
 
-![images](../img/pagina-en-construccion.png) 
+![images](../_static/img/pagina-en-construccion.png) 

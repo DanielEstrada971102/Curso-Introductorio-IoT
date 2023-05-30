@@ -1,4 +1,4 @@
-![images](../img/sensores.png)
+![images](../_static/img/sensores.png)
 
 ```{note}
 Respecto al tema de sensores, acondicionmiento de señales y adquisicón, cabe resaltar que la descripción que se dará acá es más que todo informativa, ya que entrar en detalles más profundos requeriría un curso completo de electrónica. Afortunadamente, en terminos practicos, no es algo indispensable, ya que en el mercado existen módulos dedicados que integran sensores con electrónica que se encargan de acondicionar las señales hasta el punto que solo basta conectarlos adecuadamente a las tarjetas de adquisición para lograr un sistema funcional. No obstante, tener esta infromación sigue siendo importante al momento de elegir qué tipo de sensores y actuadores utilizar, así como aspectos de la programación para la recolección de la información.
@@ -31,7 +31,7 @@ Si quiere aprender más sobre sensores y sus aplicaciones, puedes consultar los 
 ## Señales
 La señal física al ser capturada por un sensor sufre cierta degradación debido a factores intrínsecos como la resolución y el tiempo de respuesta del transductor utilizado. Esto, junto con el objetivo de proporcionar una señal lo más precisa posible al sistema de conversión analógico-digital, justifica la inclusión de una etapa de acondicionamiento de la señal ({ref}`Fig. 2 <acondicionamiento>`). Esta etapa tiene como finalidad mejorar la calidad de la señal, eliminar el ruido no deseado y adaptarla a los requisitos del sistema.
 
-```{figure} ../img/acondicionamineto.png
+```{figure} ../_static/img/acondicionamineto.png
 ---
 scale: 35%
 name: acondicionamiento
@@ -45,7 +45,7 @@ Posterior al acondicionamiento, el siguiente proceso que sufre la señal es la t
 La digitalización de señales se lleva a cabo mediante un dispositivo electrónico especializado que convierte una señal analógica continua en una señal digital compuesta por valores discretos que representan la información de la señal mediante valores numéricos (es conocido como un ADC por sus siglas en inglés). Este proceso se divide en cuatro etapas:
 
 En la primera etapa, conocida como **muestreo**, se toman muestras periódicas de la amplitud de la onda para pasar de tener un conjunto continuo de valores a uno discreto ({ref}`Fig. 3 <muestreo>`). La frecuencia de muestreo debe cumplir con el teorema de [Nyquist-Shannon](https://es.wikipedia.org/wiki/Teorema_de_muestreo_de_Nyquist-Shannon) para evitar la pérdida de información.
-```{figure} ../img/muestreo.png
+```{figure} ../_static/img/muestreo.png
 ---
 scale: 40%
 name: muestreo
@@ -55,7 +55,7 @@ imagen tomada de "Sedra, A., *Microelectronic circuits*, Fifth Ed. 2004".
 
 La siguiente etapa es la **retención**, donde las muestras tomadas se mantienen en un circuito especializado durante un tiempo suficiente para permitir su evaluación en términos de nivel (cuantificación). Aunque este proceso es necesario debido a limitaciones prácticas, no se considera en el análisis matemático y no cuenta con un modelo matemático específico.
 
-```{figure} ../img/ADC_esquema-3bits.png
+```{figure} ../_static/img/ADC_esquema-3bits.png
 ---
 scale: 40%
 align: right
@@ -66,7 +66,7 @@ El digitalizador más simple conceptualmente - el ADC flash. Imagen tomada de [l
 ```
 En la etapa de **cuantificación**, se mide el nivel de voltaje de cada muestra y se asigna un rango de valores de la señal analizada a un único nivel de salida. Sin embargo, a partir de esta etapa, la transformación de la señal no puede ser invertida completamente debido a la pérdida de información inherente al redondeo, lo que se conoce como ruido de cuantificación. En terminos practicos, la asignación puede visualizarse a través de un circuito conceptual que ayuda a comprender el proeso ({ref}`Fig. 4 <ADC-flash-esquema>`).
 
-```{figure} ../img/cuantificacion.png
+```{figure} ../_static/img/cuantificacion.png
 ---
 scale: 35%
 name: cuantificacion
@@ -91,7 +91,7 @@ $$ R = \frac{\Delta V}{2^n} = \frac{5 V}{2^{10}} = 4.8 mV.$$
 
 ## Ejemplo: SENSOR LM35 - TEMPERATURA
 Este ejemplo ilustra la importancia del acondicionamiento de una señal para aprovechar al máximo las características del sistema de adquisición.
-```{figure} ../img/lm35.png
+```{figure} ../_static/img/lm35.png
 ---
 scale: 30%
 name: lm35
@@ -108,7 +108,7 @@ con esto, el ADC distingue 52 niveles en este rango, es decir, se tiene una reso
 
 Sin embargo, añadiendo una etapa de acondicionamiento es posible mejorar la resolución. Basta con transformar la señal de tal forma que el rango 0.13 V - 0.38 V correspondan a 0 V - 5 V respectivamente, recuperando así las 1024 divisiones que nos proporciona el ADC y por tanto obteniendo una resolución de medición aproximada de 0.025 °C. Es fácil ver que la transformación a aplicar sería:
 
-```{figure} ../img/lm35-conversion.png
+```{figure} ../_static/img/lm35-conversion.png
 ---
 scale: 25%
 name: lm35-conv

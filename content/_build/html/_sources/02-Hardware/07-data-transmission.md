@@ -29,7 +29,7 @@ Es un protocolo de mensajería ligero diseñado para la comunicación entre disp
 
 En la {ref}`Fig. X <MQTT-protocol>`, se puede apreciar un esquema general que ilustra el flujo de datos en una red de comunicación con el protocolo MQTT.
 
-```{figure} ../img/MQTT-protocol.png
+```{figure} ../_static/img/MQTT-protocol.png
 ---
 scale: 40%
 name: MQTT-protocol

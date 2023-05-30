@@ -5,7 +5,7 @@ title: Curso Introductorio a IoT
 author: "Daniel Estrada & Fabián Castaño / Universidad de Antioquia - GICM"
 copyright: "2023"  # Copyright year to be placed in the footer
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
-logo: img/logo.png
+logo: _static/img/logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -36,6 +36,6 @@ repository:
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-  favicon: "img/page-icon-2.png"
+  favicon: "_static/img/page-icon-2.png"
   use_issues_button: true
   use_repository_button: true

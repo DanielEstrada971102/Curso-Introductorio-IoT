@@ -1,4 +1,4 @@
-![img](../img/arduinoHeader.png) 
+![img](../_static/img/arduinoHeader.png) 
 
 # Arduino
 Arduino es una compañía que proporciona un ecosistema de desarrollo de sistemas electrónicos basados en microcontroladores que es multiplataforma, gratis y libre. Se puede decir que Arduino son 2 cosas:
@@ -6,7 +6,7 @@ Arduino es una compañía que proporciona un ecosistema de desarrollo de sistema
 
 **1. Una placa (PCB) de hardware libre**, diseñada para incorporar un microcontrolador reprogramable con una serie de entradas y salidas que permiten programar y conectar allí de forma muy sencilla y cómoda diferentes sensores y actuadores. Existen infinidad de modelos de placa Arduino, al ser de código abierto, diferentes versiones tan específicas como se deseen pueden ser adaptadas desde el diseño base. Sin embargo, la compañía produce una serie de placas oficiales entre las que se pueden distinguir: Arduino Uno, Arduino Mega, Arduino Nano, Arduino micro, entre otros. Estos llegan a diferir en forma y capacidades y versiones de microcontrolador que incorporan. De particular interés para este curso, es la versión Arduino Mega 2560.
 
-```{figure} ../img/Pinout-Mega2560rev3.png
+```{figure} ../_static/img/Pinout-Mega2560rev3.png
 ---
 scale: 40%
 name: Fig8

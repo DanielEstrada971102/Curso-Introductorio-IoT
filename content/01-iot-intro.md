@@ -1,4 +1,4 @@
-![images](img/IoT_header.png) 
+![images](_static/img/IoT_header.png) 
 # Internet de las cosas
 ```{contents}
 ```
@@ -19,7 +19,7 @@ Un sistema IoT puede ser clasificado como un sistema embebido con conectividad a
 
 ## Estructura de un sistema IoT
 
-```{figure} img/Fig2-Iot_Components.png
+```{figure} _static/img/Fig2-Iot_Components.png
 ---
 scale: 50%
 ---

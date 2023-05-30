@@ -91,7 +91,7 @@ if __name__ == '__main__':
 ```
 Si todo sale bien, usted podrá ver como sus datos son publicados en la base de datos creada en el servidor Atlas.
 
-```{figure} ../img/AtlasdataView.png
+```{figure} ../_static/img/AtlasdataView.png
 ---
 scale: 80%
 name: AtlasdataView

@@ -1,4 +1,4 @@
-![images](../img/mongoLogo.png) 
+![images](../_static/img/mongoLogo.png) 
 
 # Persistencia de la información
 ```{contents}
@@ -8,7 +8,7 @@ Dentro del backend, una vez los datos son recibidos desde el sistema electrónic
 ## Bases de datos
 Una base de datos es una colección estructurada de información almacenada en un medio digital, como discos duros, servidores o en la nube. Los datos se gestionan a través de un sistema de gestión de bases de datos (Database Management Systems, DBMS) para administrar y controlar la información, con el cual podemos interactuar mediante consultas usando un lenguaje específico como SQL (Structured Query Language). Las consultas permiten realizar acciones en la base de datos, como crear, modificar, almacenar y recuperar datos de manera eficiente.
 
-```{figure} ../img/sqlAndNoSql.png
+```{figure} ../_static/img/sqlAndNoSql.png
 ---
 scale: 45%
 align: right
@@ -19,7 +19,7 @@ Tipos de bases de datos.
 ```
 En este contexto se pueden distinguir varios tipos de bases de datos (ver {ref}`Fig 23. <sqlAndNosql>`), que pueden ser SQL o NoSQL[^1]. Particularmente, usted seguramente está familiarizado con: Las relacionesles (RDB - *relational data base*) y las documentales.  Las primeras son las más comunes y consisten en bases de datos donde la información se organiza en tablas diferentes, las cuales pueden tener o no vínculos entre ellas mediante claves primarias y secundarias (o foráneas). En la {ref}`Fig 24. <brelacional>` se ilustra esto, se puede observar cómo tres tablas distintas están relacionadas mediante sus claves. Dentro de esta categoría, uno de los gestores más significativos es **MySQL**.
 
-```{figure} ../img/brelacional.png
+```{figure} ../_static/img/brelacional.png
 ---
 scale: 40%
 name: brelacional
@@ -35,7 +35,7 @@ MongoDB es un sistema de gestión de bases de datos NoSQL documental de código 
 
 En MongoDB, la estructura de la base de datos se basa en colecciones, que son el equivalente a las tablas en las bases de datos relacionales. Cada colección puede contener diferentes documentos, que son el equivalente a los registros en las bases de datos relacionales. Los documentos contienen información estructurada en formato JSON. Esta estructura es visualizada de forma gráfica en la {ref}`Fig. 25 <mongoEstructura>`.
 
-```{figure} ../img/mongoEstrucura.png
+```{figure} ../_static/img/mongoEstrucura.png
 ---
 scale: 40%
 name: mongoEstructura
