@@ -459,22 +459,23 @@ document.write(`
 
 
 <span class="kr">void</span><span class="w"> </span><span class="nf">init_Timer</span><span class="p">(){</span>
-<span class="w">    </span><span class="cm">/* Con esta configuración se creara una interrupción cada 1 ms usando el Timer1</span>
-<span class="cm">        y un preescalar de 1024.</span>
+<span class="w">    </span><span class="cm">/* Con esta configuración se creara una interrupción cada 100 ms usando el Timer1</span>
+<span class="cm">        y un preescalar de 256.</span>
 <span class="cm">        Calculos:</span>
 <span class="cm">        clock --&gt; 16 Mhz</span>
-<span class="cm">        Prescalar --&gt; 1024;</span>
-<span class="cm">        velocidad de Timer 1= 16Mhz/1024 = 15625 Hz</span>
-<span class="cm">        Pulso = 1/15625 hz =    64us</span>
-<span class="cm">        Contador = 1 ms / 64us = 15625</span>
+<span class="cm">        Prescalar --&gt; 256;</span>
+<span class="cm">        velocidad de Timer 1= 16Mhz/256 = 62500 Hz</span>
+<span class="cm">        Pulso = 1/62500 hz =    16us</span>
+<span class="cm">        Contador = 100 ms / 16us = 6250</span>
 <span class="cm">    */</span>
 <span class="w">    </span><span class="n">cli</span><span class="p">();</span><span class="w">                </span><span class="c1">// Se deshabilitan las interrupciones </span>
 <span class="w">    </span><span class="n">TCNT1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">	          </span><span class="c1">// Se reinicia el contador del Timer 1.</span>
 <span class="w">    </span><span class="n">TCCR1A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">           </span><span class="c1">// Se reinicia todo el registro TCCR1A</span>
 <span class="w">    </span><span class="n">TCCR1B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">           </span><span class="c1">// Se reinicia todo el registro TCCR1A</span>
-<span class="w">    </span><span class="n">TCCR1A</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">B00000101</span><span class="p">;</span><span class="w">	</span><span class="c1">// Se pone CS12 y CS10 en 1, es decir un preescalar de 1024</span>
+<span class="w">    </span><span class="n">TCCR1B</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">B00001000</span><span class="p">;</span><span class="w">    </span><span class="c1">// Se pone el bit WGM12 en 1 para habilitar el modo Compare Match</span>
+<span class="w">    </span><span class="n">TCCR1B</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">B00000100</span><span class="p">;</span><span class="w">	</span><span class="c1">// Se pone CS12 en 1 y los demás en cero, es decir un preescalar de 256</span>
 <span class="w">    </span><span class="n">TIMSK1</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">B00000010</span><span class="p">;</span><span class="w">	</span><span class="c1">// Se habilita la interrupción por compare mathc</span>
-<span class="w">    </span><span class="n">OCR1A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15625</span><span class="p">;</span><span class="w">        </span><span class="c1">// Se define el registo de comparacion A en este valor</span>
+<span class="w">    </span><span class="n">OCR1A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6250</span><span class="p">;</span><span class="w">        </span><span class="c1">// Se define el registo de comparacion A en este valor</span>
 <span class="w">    </span><span class="n">sei</span><span class="p">();</span><span class="w">                </span><span class="c1">// Se habilitan las interrupciones</span>
 <span class="p">}</span>
 
@@ -482,14 +483,14 @@ document.write(`
 <span class="w">    </span><span class="n">measureCounter</span><span class="o">++</span><span class="p">;</span>
 
 <span class="w">    </span><span class="c1">// Frecuencia de muestreo de 200 ms</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">measureCounter</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">200</span><span class="p">){</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">measureCounter</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">){</span>
 <span class="w">        </span><span class="n">measureCounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">        </span><span class="n">measureFlag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="c1">// Frecuencia del Led indicador de 0.5s</span>
 <span class="w">    </span><span class="n">ledCounter</span><span class="o">++</span><span class="p">;</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ledCounter</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">500</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ledCounter</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">ledCounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">        </span><span class="n">LedFlag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
