@@ -15,3 +15,4 @@
 **Presentaciones**
 * [Clase 1](../slides/Prensentacion-Clase1.pdf)
 * [Clase 2](../slides/Prensentacion-Clase2.pdf)
+* [Clase 3 - bases de datos](../slides/Prensentacion-Clase3-Bases-de-datos.pdf)
