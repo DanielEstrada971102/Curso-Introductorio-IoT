@@ -24,5 +24,6 @@ chapters:
     - file: 03-Software/01-Backend
       sections:
       - file: 03-Software/01-1-databases
+      - file: 03-Software/01-3-fast-api
       - file: 03-Software/01-2-activity-4
     - file: 03-Software/02-Frontend
