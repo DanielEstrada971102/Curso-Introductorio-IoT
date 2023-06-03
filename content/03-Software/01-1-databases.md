@@ -3,6 +3,9 @@
 # Persistencia de la información
 ```{contents}
 ```
+```{warning}
+Esta sección será actualizada próximamente para incluir explicaciones más detalladas sobre MongoDB y su arquitectura.
+```
 Dentro del backend, una vez los datos son recibidos desde el sistema electrónico, ya sea a través de comunicación serial o de protocolos web, una de las cosas más importantes es garantizar la persistencia de la información, preferiblemente de forma estructurada para facilitar su manipulación. Con este fin, en el diseño de los sistemas IoT es indispensable hacer uso de las bases de datos.
 
 ## Bases de datos
